@@ -34,3 +34,5 @@ document.getElementById("langages").insertBefore(perlElt, document.getElementByI
 
 // Ajout d'un élément au tout début de la liste
 document.getElementById('langages').insertAdjacentHTML('afterBegin', '<li id="javascript">JavaScript</li>');
+
+// Test pull github
