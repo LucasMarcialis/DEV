@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang=fr>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Minichat</title>
+</head>
+<body>
+  <div id="main-wrapper">
+    <div id="mini-chat">
+      <div id="messages">
+        <h1>Mini chat</h1>
+        <p>[29/08/2018 à 17:37:02] <b> Lucas</b> : L'arroseur arrosé</p>
+        <p>[29/08/2018 à 17:36:49] <b> Pierre</b> : Très drôle ..</p>
+        <p>[29/08/2018 à 17:36:41] <b> Lucas</b> : Ciseaux</p>
+        <p>[29/08/2018 à 17:36:20] <b> Paul</b> : Feuille</p>
+        <p>[29/08/2018 à 17:36:13] <b> Pierre</b> : Oui ?</p>
+        <p>[29/08/2018 à 17:36:08] <b> Paul</b> : Pierre</p>
+        <p>[29/08/2018 à 17:35:54] <b> Pierre</b> : Je m'ennuie ...</p>
+        <p>[29/08/2018 à 17:35:46] <b> Paul</b> : Ouais ben va trouver l'inspiration</p>
+        <p>[29/08/2018 à 17:35:37] <b> Lucas</b> : Pensez au faut qu'on a besoin de tester que la pagination s'affiche bien les gars !</p>
+        <p>[29/08/2018 à 17:35:10] <b> Paul</b> : En vrai je sais plus trop quoi dire pour rajouter des entrées dans la base</p>
+        
+        <div id=pagination>
+          <ul class="pagination">
+            <li class="active"><a>1</a></li><li class="inactive"><a href="minichat.php?page=2">2</a></li><li class="inactive"><a href="minichat.php?page=3">3</a></li>          
+          </ul>
+        </div>
+        <div class="button">
+          <a href="minichat.php">RAFRAICHIR</a>
+        </div>
+      </div>
+      <form method="post" action="minichat_post.php">
+        <label for="pseudo">Pseudo</label><input type="text" name="pseudo" 
+        id="pseudo" maxlength=30 value="Lucas"/>
+        <label for="message">Message</label><textarea name="message" id="message"></textarea>
+        <input type="submit" value="POSTER" class="button" />
+      </form>
+    </div>
+  </div>
+</body>
+</html>

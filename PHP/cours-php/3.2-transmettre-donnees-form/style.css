@@ -1,0 +1,92 @@
+body
+{
+	font-family:"Helvetica";
+}
+#main-wrapper
+{
+	display: flex;
+	flex-direction: column;
+	max-width: 1366px;
+	margin: auto;
+}
+form
+{
+	display: flex;
+	flex-direction: column;
+	min-width: 300px;
+	max-width: 400px;
+	text-align: center;
+	margin: auto;
+	background-color:#E9EBEE;
+	padding:20px;
+}
+#prenom, #nom, #email, #message, #age, #range, #date, #color, #email-inscription, #password-inscription, #password-inscription-confirmation, #email-connexion, #password-connexion 
+{
+	color:gray;
+	margin:5px 0px 5px 0px;
+	padding:5px;
+}
+#prenom:focus, #nom:focus, #email:focus, #message:focus, #email-connexion:focus, #password-connexion:focus, #age:focus, #date:focus
+{
+	color:black;
+	margin:5px 0px 5px 0px;
+	padding:5px;
+}
+#message
+{
+	height:100px;
+}
+label
+{
+	margin-top:5px;
+}
+#text-yes, #text-no, #text-mp3, #text-cd, #text-vinyle
+{
+	margin-top: auto;
+}
+#checkbox
+{
+	display:flex;
+	margin: 5px 0px 5px 0px;
+}
+#yes, #no, #mp3, #cd, #vinyle
+{
+	margin-bottom: auto;
+	margin-top: auto;
+	margin-right: 10px;
+	transform: scale(1.3);
+}
+#button
+{
+	display: block;
+	margin-top: 30px;
+	background-color: black;
+	padding: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+#button:hover
+{
+	background-color: #414141;
+}
+p
+{
+	text-align:center;
+}
+h1
+{
+	font-size: 1.8em;
+	text-transform: uppercase;
+}
+h3
+{
+	font-size: 1.3em;
+	font-weight: normal;
+	text-align: center;
+}
+#club
+{
+	display: block;
+	line-height: 2em;
+}

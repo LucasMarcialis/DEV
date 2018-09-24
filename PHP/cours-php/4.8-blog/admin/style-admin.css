@@ -1,0 +1,55 @@
+body
+{
+	font-family:"Helvetica";
+}
+h1, h3
+{
+    text-align: center;
+}
+h3
+{
+    background-color:black;
+    color:white;
+    font-size:0.9em;
+    margin-bottom:0px;
+}
+h6
+{
+    margin: 5px;
+    font-size: 0.9em;
+    text-align: center;
+}
+.news p
+{
+    background-color:#CCCCCC;
+    margin-top:0px;
+}
+.news, .commentaires, form
+{
+    width:70%;
+    margin:auto;
+}
+
+a
+{
+    text-decoration: none;
+    color: blue;
+}
+.pagination a
+{
+    color: black;
+}
+.supprimer
+{
+    background-color: red;
+    margin: auto;
+    width: 150px;
+}
+.supprimer a
+{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    text-align: center;   
+}

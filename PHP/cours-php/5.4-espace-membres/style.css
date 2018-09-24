@@ -1,0 +1,74 @@
+body
+{
+	font-family:"Helvetica";
+}
+#main-wrapper
+{
+	display: flex;
+	flex-direction: column;
+	max-width: 1366px;
+	margin: auto;
+}
+form, #box
+{
+	display: flex;
+	flex-direction: column;
+	min-width: 400px;
+	max-width: 400px;
+	text-align: center;
+	margin: auto;
+	background-color:#E9EBEE;
+	padding:20px;
+}
+#pseudo-inscription, #email-inscription, #password-inscription, #password-inscription-confirmation, #email-connexion, #password-connexion 
+{
+	color:gray;
+	margin:5px 0px 5px 0px;
+	padding:5px;
+}
+#prenom:focus, #nom:focus, #email:focus, #message:focus, #email-connexion:focus, #password-connexion:focus, #age:focus, #date:focus
+{
+	color:black;
+	margin:5px 0px 5px 0px;
+	padding:5px;
+}
+
+label
+{
+	margin-top:5px;
+}
+#button
+{
+	display: block;
+	margin-top: 30px;
+	background-color: black;
+	padding: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+#button:hover
+{
+	background-color: #414141;
+}
+p
+{
+	text-align:center;
+}
+h1
+{
+	font-size: 1.8em;
+	text-transform: uppercase;
+}
+h3
+{
+	font-size: 1.3em;
+	font-weight: normal;
+	text-align: center;
+}
+img
+{
+	width: 30%;
+	height: 30%;
+	margin: auto;
+}

@@ -1,0 +1,259 @@
+/*
+style.css
+---------
+Par Lucas Marcialis
+Pour bashedgroove.fr
+*/
+
+/********* MAIN FRAME *********/
+
+
+/* ALL PAGES */
+body
+{
+	font-family: "Helvetica", "Open Sans", "Arial";
+	background-color:#E9EBEE;
+}
+#main_wrapper
+{
+	width: 1366px;
+	margin: auto;
+}
+@media all and (max-width: 1024px)
+{
+    #main_wrapper
+    {
+        width:auto;
+    }
+}
+
+
+/* HEADER */
+header
+{
+	background-color: black;
+}
+#header-logo
+{
+	width:300px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+/* NAV MENU */
+nav
+{
+	width: 900px;
+	margin: 0.5em auto 0.5em auto;
+	box-shadow: 2px 2px 500px gray;
+}
+nav ul
+{
+	list-style-type: none;
+	height: 46px;
+	margin: 0;
+	padding: 0;
+}
+nav li
+{
+	float:left;
+	width:25%;
+}
+nav li a
+{
+    display: block;
+    background-color: white;
+    color: #181818 ;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight:bold;
+}
+nav li a:hover
+{
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+	border-right: 2px solid white;
+	background-color:black;
+	color: white;
+    padding: 14px 16px;
+}
+
+
+/* SECTION */
+section
+{
+	width: 900px;
+	margin: auto;
+	color: black;
+	background-color: white;
+	border : 1px solid;
+	border-color: #dddfe2;
+	border-radius: 4px;
+	padding: 0px;
+}
+h1
+{
+	letter-spacing: 0.05em;
+	font-size: 2em;
+	text-transform: uppercase;
+}
+h1, h2, h3, h4, h5, h6
+{
+	display:block;
+	text-align:center;
+}
+p
+{
+	color: gray;
+	font-size:1em;
+	text-align:justify;
+	padding:20px;
+}
+span
+{
+	color:black;
+	font-weight:bold;
+}
+strong
+{
+	font-size:1.2em;
+}
+
+/* FOOTER */
+footer
+{
+	width: 900px;
+	margin: 20px auto auto auto;
+}
+footer ul
+{
+	list-style-type: none;
+	background-color:black;
+	height:46px;
+	margin:0;
+	padding:0;
+}
+footer li
+{
+	float:left;
+	width:25%;
+}
+footer li a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight:bold;
+}
+footer li a:hover
+{
+	background-color:gray;
+	color:white;
+	border-radius:3px;
+    padding: 14px 16px;
+}
+
+
+/********* OTHER PAGES *********/
+
+p.intro-titre
+{
+	font-style:italic;
+	text-align:center;
+	margin: 2px;
+}
+.bienvenue
+{
+	font-style: bold
+}
+
+
+div.img.bloc-notes
+{
+	vertical-align: middle;
+	display:block;
+	margin-left: auto;
+	margin-right:auto;
+}
+figcaption
+{
+	text-align:center;
+	text-decoration:overline;
+}
+
+
+
+ul.evenements
+{
+	display:;
+	list-style: none;
+	color:black;
+	height:46px;
+	margin:auto;
+	text-align: center;
+	overflow:hidden;
+}
+a.events
+{
+	display:block;
+	background-color:black;
+	color:white;
+}
+a.events:hover
+{
+	background-color:gray;
+	color:white;
+	border-radius:0px;
+    padding: 14px 16px;
+}
+a.media-telecharge
+{
+	text-align:center;
+	text-transform:uppercase;
+	font-weight:bold;
+	display:block;
+	text-decoration:none;
+	margin:auto;
+	padding:14px 16px;
+	color:white;
+	background-color:black;
+	width:170px;
+	border-radius:3px;
+}
+a.media-telecharge:hover
+{
+	background-color:gray;
+}
+#lien_hypertexte
+{
+	text-decoration:none;
+	color:black;
+	font-weight:bold;
+}
+#lien_hypertexte:hover
+{
+	color:gray;
+}
+#thanks
+{
+	text-align:center;
+	text-transform:uppercase;
+	font-weight:bold;
+	display:block;
+	text-decoration:none;
+	margin:auto;
+	padding:14px 16px;
+	color:white;
+	background-color:black;
+	width:170px;
+	border-radius:3px;
+}
+#thanks:hover
+{
+	background-color:gray;
+}

@@ -1,0 +1,1 @@
+<?php echo '<div class="news"><h3>'. htmlspecialchars($donnees['titre']).' le '.htmlspecialchars($donnees['date_creation_fr']).'</h3><p>'.htmlspecialchars($donnees['contenu']).'<br/><em><a href=\'commentaires.php?billet='.htmlspecialchars($donnees['id']).'\'>Commentaires</a></em></p></div>'; ?>

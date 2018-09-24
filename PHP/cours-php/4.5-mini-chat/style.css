@@ -1,0 +1,158 @@
+/* STYLESHEET CSS3 by MARSOUS */
+
+/* CORE */
+body
+{
+	font-family: "Helvetica";
+}
+#main-wrapper
+{
+	display: flex;
+	flex-direction: column;
+	max-width: 1366px;
+	margin: auto;
+}
+#mini-chat
+{
+	display: flex;
+	flex-direction: column;
+	min-width: 600px;
+	max-width: 600px;
+	margin: auto;
+	background-color: #E9EBEE;
+}
+h1
+{
+	font-size: 1.8em;
+	text-transform: uppercase;
+
+	margin: 30px auto 30px auto;
+}
+
+/* ALL */
+.button
+{
+	border-style: none;
+	display: flex;
+	flex-direction: column-reverse;
+	margin: 15px auto 15px auto;
+	background-color: black;
+	text-align: center;
+	padding: 10px 20px 10px 20px;
+	font-size: 0.8em;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+.button:hover
+{
+	background-color: #414141;
+}
+.button a
+{
+	text-decoration: none;
+	color: white;
+}
+
+/* FORM */
+form
+{
+	text-align: center;
+	margin-top: 20px;
+}
+#pseudo, #message
+{
+	margin: 5px auto 0px auto;
+	padding: 5px;
+	width: 250px;
+}
+#message
+{
+	height: 100px;
+}
+label
+{
+	display : flex;
+	flex-direction: column;
+	margin-top: 5px;
+	font-weight: bold;
+}
+.missingpseudo, .missingmessage
+{
+	color: red;
+	font-size: 0.9em;
+	height: 0.9em;
+}
+.missingpseudo
+{
+	margin: 5px auto 10px auto;
+}
+.missingmessage
+{
+	margin: 0px auto 10px auto;
+}
+
+/* MESSAGES*/
+#messages
+{
+	padding: 0px 60px 0px 60px;
+	display: flex;
+	flex-direction: column;
+}
+
+#messages p
+{
+	margin: 5px 0 5px 0;
+}
+
+/* PAGINATION */
+ul
+{
+	list-style-type: none;
+	padding-left: 0px;
+	margin: 5px auto 5px auto;
+}
+ul > :first-child
+{
+    border-left: 1px solid black;
+}
+li
+{
+	border: 1px solid black;
+	border-left:none;
+}
+#pagination
+{
+	display: table;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.pagination
+{
+	display: inline-flex;
+	margin: auto;
+}
+.pagination a
+{
+	margin: 5px;
+	padding: 5px;
+	text-decoration: none;
+	color: black;
+}
+.active
+{
+	background-color: black;
+	text-align: center;
+}
+.active a
+{
+	margin: 5px;
+	padding: 5px;
+	text-decoration: none;
+	color: white;
+}
+.inactive:hover
+{
+	background-color: darkgray;
+}

@@ -1,0 +1,56 @@
+Last login: Sat Sep 22 01:34:21 on ttys000
+MacBook-Pro-de-Lucas:~ lucasmarcialis$ pwd
+/Users/lucasmarcialis
+MacBook-Pro-de-Lucas:~ lucasmarcialis$ ls
+Applications		Library			Public
+Desktop			Movies
+Documents		Music
+Downloads		Pictures
+MacBook-Pro-de-Lucas:~ lucasmarcialis$ cd Desktop
+MacBook-Pro-de-Lucas:Desktop lucasmarcialis$ mkdir art-museum-website
+MacBook-Pro-de-Lucas:Desktop lucasmarcialis$ cd art-museum-website
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ mkdir css
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ cd css
+MacBook-Pro-de-Lucas:css lucasmarcialis$ touch main.css
+MacBook-Pro-de-Lucas:css lucasmarcialis$ cd ..
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ mkdir img
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ mkdir js
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ cd js
+MacBook-Pro-de-Lucas:js lucasmarcialis$ touch main.js
+MacBook-Pro-de-Lucas:js lucasmarcialis$ cd ..
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ touch 404.html
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ touch index.html
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ touch about.html
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ touch contact.html
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ touch robots.txt
+MacBook-Pro-de-Lucas:art-museum-website lucasmarcialis$ cd ..
+MacBook-Pro-de-Lucas:Desktop lucasmarcialis$ mkdir artworks
+MacBook-Pro-de-Lucas:Desktop lucasmarcialis$ ls
+art-museum-website	artworks
+MacBook-Pro-de-Lucas:Desktop lucasmarcialis$ cd ..
+MacBook-Pro-de-Lucas:~ lucasmarcialis$ ls
+Applications		Library			Public
+Desktop			Movies			Soulseek Downloads
+Documents		Music
+Downloads		Pictures
+MacBook-Pro-de-Lucas:~ lucasmarcialis$ cd Downloads
+MacBook-Pro-de-Lucas:Downloads lucasmarcialis$ ls
+Kerri Chandler	paintings
+MacBook-Pro-de-Lucas:Downloads lucasmarcialis$ cp -R paintings ~/Desktop/artworks
+MacBook-Pro-de-Lucas:Downloads lucasmarcialis$ cd ..
+MacBook-Pro-de-Lucas:~ lucasmarcialis$ ls
+Applications		Library			Public
+Desktop			Movies			Soulseek Downloads
+Documents		Music
+Downloads		Pictures
+MacBook-Pro-de-Lucas:~ lucasmarcialis$ cd Desktop
+MacBook-Pro-de-Lucas:Desktop lucasmarcialis$ cd artworks
+MacBook-Pro-de-Lucas:artworks lucasmarcialis$ mkdir artist-info
+MacBook-Pro-de-Lucas:artworks lucasmarcialis$ cd artist-info
+MacBook-Pro-de-Lucas:artist-info lucasmarcialis$ touch leonardo-da-vinci.txt
+MacBook-Pro-de-Lucas:artist-info lucasmarcialis$ touch claude-monet.txt
+MacBook-Pro-de-Lucas:artist-info lucasmarcialis$ touch pablo-picasso.txt
+MacBook-Pro-de-Lucas:artist-info lucasmarcialis$ touch vincent-van-gogh.txt
+MacBook-Pro-de-Lucas:artist-info lucasmarcialis$ ls
+claude-monet.txt	pablo-picasso.txt
+leonardo-da-vinci.txt	vincent-van-gogh.txt

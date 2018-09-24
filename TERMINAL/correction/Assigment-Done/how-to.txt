@@ -1,0 +1,112 @@
+ cd Desktop"
+  617    487  mkdir art-museum-website
+  618    488  ls
+  619    489  cd art-mesuem-website
+  620    490  cd art-meseum-website
+  621    491  cd art-museum-website
+  622    492  mkdir css
+  623    493  cd css
+  624    494  touch main.css
+  625    495  ls
+  626    496  cd ..
+  627    497  mkdir img
+  628    498  ls
+  629    499  mkdir js
+  630    500  cd js
+  631    501  touch main.js
+  632    502  ls
+  633    503  cd ..
+  634    504  touch 404.html
+  635    505  ls
+  636    506  touch index.html
+  637    507  about.html
+  638    508  touch about.html
+  639    509  touch contact.html
+  640    510  touch robots.txt
+  641    511  cd ..
+  642    512  ls
+  643    513  mkdir artworks
+  644    514  cd artworks
+  645    515  mkdir paintings
+  646    516  cd paintings
+  647    517  touch mona-lisa.jpg
+  648    518  ls
+  649    519  touch water-lilies.jpg
+  650    520  touch guernica.jpg
+  651    521  ls
+  652    522  touch the-starry-night.jpg
+  653    523  cd ..
+  654    524  ls
+  655    525  mkdir artist-info
+  656    526  cd artist-info
+  657    527  touch leonardo-da-vinci.txt
+  658    528  touch claude-monet.txt
+  659    529  touch pablo-picasso.txt
+  660    530  touch vincent-van-gogh.txt
+  661    531  ls
+  662    532  cd ../Desktop
+  663    533  cd ..
+  664    534  cd ..
+  665    535  cd ..
+  666    536  ls
+  667    537  cd Downloads
+  668    538  ls
+  669    539  mv paintings.zip
+  670    540  mv paintings.zip Desktop
+  671    541  ls
+  672    542  cd ..
+  673    543  ls
+  674    544  cd Desktop
+  675    545  ls
+  676    546  mv paintings.zip artworks
+  677    547  cd ..
+  678    548  cd Download
+  679    549  cd Desktop
+  680    550  ls
+  681    551  cd ..
+  682    552  ls
+  683    553  cd Downloads
+  684    554  ls
+  685    555  ls
+  686    556  ls
+  687    557  mv paintings.zip  ~/Desktop/artworks
+  688    558  ls
+  689    559  cd ..
+  690    560  cd Desktop
+  691    561  cd artworks
+  692    562  ls
+  693    563  cd paintings.zip
+  694    564  cd ..
+  695    565  cd ..
+  696    566  cd Downloads
+  697    567  mv paintings  ~/Desktop/artworks
+  698    568  cd ..
+  699    569  cd Desktop
+  700    570  cd artworks
+  701    571  ls
+  702    572  rm paintings
+  703    573  rm -R paintings
+  704    574  ls
+  705    575  rm paintings.zip
+  706    576  ls
+  707    577  cd ..
+  708    578  cd ..
+  709    579  cd Downloads
+  710    580  mv paintings  ~/Desktop/artworks
+  711    581  cd ..
+  712    582  cd Desktop
+  713    583  cd artworks
+  714    584  ls
+  715    585  cd paintings
+  716    586  ls
+  717    587  cd ..
+  718    588  cd ..Desktop
+  719    589  cd ..
+  720    590  touch Assigment.zip
+  721    591  mv artworks Assigment.zip
+  722    592  mkdir Assigment-Done
+  723    593  mv artworks Assigment-Done
+  724    594  mv art-museum-website Assigment-Done
+  725    595  cd Assigment
+  726    596  cd Assigment-Done
+
