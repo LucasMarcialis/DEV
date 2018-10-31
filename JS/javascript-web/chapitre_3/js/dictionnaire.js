@@ -22,8 +22,8 @@ document.getElementById("contenu").appendChild(dlElt);
 for(i = 0; i < mots.length; i++ ) {
     var termElt = document.createElement("dt");
     var termeStrElt = document.createElement("strong");
-    termeStrElt.textContent = mots[i].terme;
     var defElt = document.createElement("dd");
+    termeStrElt.textContent = mots[i].terme;
     defElt.textContent = mots[i].definition;
     termElt.appendChild(termeStrElt);
     dlElt.appendChild(termElt);
