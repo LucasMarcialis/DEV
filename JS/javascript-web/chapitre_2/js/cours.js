@@ -69,7 +69,7 @@ var classes = document.getElementById("antiques").classList;
 console.log(classes.length);
 console.log(classes[0]);
 
-// Tester la présenced'une classe dans un élément en appelant laméthode contains sur la liste des classes
+// Tester la présenced'une classe dans un élément en appelant la méthode contains sur la liste des classes
 if (document.getElementById("antiques").classList.contains("merveille")) {
     console.log("l'élément identifié par antiques ne possède pas la classe merveille");
     } else {
