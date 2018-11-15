@@ -26,16 +26,32 @@ var listeLiens = [
 
 // TODO : compléter ce fichier pour ajouter les liens à la page web
 
-var titreElt = document.createElement("span");
+var titreElt = document.createElement("div");
 var lienTitreElt = document.createElement("a");
-var parElt = document.createElement("p");
+lienTitreElt.style.color = "#428bca";
+lienTitreElt.style.textDecoration = "none";
+lienTitreElt.style.fontWeight = "bold";
+var urlElt = document.createElement("span");
+var auteurElt = document.createElement("span");
 
-for(i = 0; i< listeLiens.length; i++) {
+for (i = 0; i < listeLiens.length; i++) {
+    var divElt = document.createElement("div");
+    divElt.classList.add("lien");
+    
     lienTitreElt.href = listeLiens[i].url;
     lienTitreElt.textContent = listeLiens[i].titre;
+
     titreElt.appendChild(lienTitreElt);
-    parElt.appendChild(lienTitreElt);
-    parElt.innerHTML += listeLiens[i].url;
-    parElt.innerHTML += "<br />" + listeLiens[i].auteur;
-    document.getElementById("contenu").appendChild(parElt);
+    divElt.appendChild(lienTitreElt);
+    
+    urlElt.textContent = " " + listeLiens[i].url;
+    divElt.appendChild(urlElt);
+    
+    divElt.innerHTML += "<br />";
+    
+    auteurElt.textContent = "Ajouté par " + listeLiens[i].auteur;
+    divElt.appendChild(auteurElt);
+
+    divElt.innerHTML += " ";
+    document.getElementById("contenu").appendChild(divElt);
 }
