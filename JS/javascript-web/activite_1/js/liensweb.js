@@ -26,32 +26,35 @@ var listeLiens = [
 
 // TODO : compléter ce fichier pour ajouter les liens à la page web
 
-var titreElt = document.createElement("div");
-var lienTitreElt = document.createElement("a");
-lienTitreElt.style.color = "#428bca";
-lienTitreElt.style.textDecoration = "none";
-lienTitreElt.style.fontWeight = "bold";
-var urlElt = document.createElement("span");
-var auteurElt = document.createElement("span");
-
-for (i = 0; i < listeLiens.length; i++) {
+listeLiens.forEach(function (lien) {
+    // Création des variables nécessaires
     var divElt = document.createElement("div");
-    divElt.classList.add("lien");
+    var aElt = document.createElement("a");
+    var spanUrlElt = document.createElement("span");
+    var spanAuteurElt = document.createElement("span");
+    var pElt = document.createElement("p");
+                   
+    // Définition des informations des éléments
+    divElt.setAttribute("class", "lien");
     
-    lienTitreElt.href = listeLiens[i].url;
-    lienTitreElt.textContent = listeLiens[i].titre;
+    aElt.href = lien.url;
+    aElt.textContent = lien.titre;
+    aElt.style.color = "#428bca";
+    aElt.style.textDecoration = "none";
+    aElt.style.fontWeight = "bold";
 
-    titreElt.appendChild(lienTitreElt);
-    divElt.appendChild(lienTitreElt);
-    
-    urlElt.textContent = " " + listeLiens[i].url;
-    divElt.appendChild(urlElt);
-    
-    divElt.innerHTML += "<br />";
-    
-    auteurElt.textContent = "Ajouté par " + listeLiens[i].auteur;
-    divElt.appendChild(auteurElt);
+    spanUrlElt.textContent = " " + lien.url;
 
-    divElt.innerHTML += " ";
+    pElt.classList.add("paragraphe");
+    pElt.style = "margin: 0px";
+
+    spanAuteurElt.textContent = "Ajouté par " + lien.auteur;
+
+    // Insertion des éléments)
+    divElt.appendChild(aElt);
+    divElt.appendChild(spanUrlElt);
+    divElt.appendChild(pElt);
+    pElt.appendChild(spanAuteurElt);
     document.getElementById("contenu").appendChild(divElt);
-}
+        
+}) 
