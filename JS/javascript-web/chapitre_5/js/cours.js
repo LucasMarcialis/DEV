@@ -83,4 +83,52 @@ function getBoutonSouris(code) {
     return bouton;
 }
 
-document.addEventListener("")
+// Affiche des informations sur un événement souris
+function infosSouris(e) {
+    console.log("Evènement souris : " + e.type + ", bouton " + getBoutonSouris(e.button) + ", X : " + e.clientX + ", Y : " + e.clientY);
+}
+
+// Gestion du clic souris
+document.addEventListener("click", infosSouris);
+
+// Gestion de l'appui et du ralâchement d'un bouton de la souris
+document.addEventListener("mousedown", infosSouris);
+document.addEventListener("mouseup", infosSouris);
+
+// Le déclenchement des évènements souris est le suivant : MOUSEDOWN > MOUSEUP > CLICK
+
+// Gestion de la fin du chargement de la page web
+window.addEventListener("load", function() {
+    console.log("Page entièrement chargée");
+});
+
+// Gestion de la fermeture de la page web
+window.addEventListener("beforeunload", function (e) {
+    var message = "On est bien ici !";
+    e.returnValue = message; // Provoque une demande de confirmation (standard)
+    return message; // Provoque une demande de confirmation (certains navigateurs)
+});
+
+
+// Gestion du clic sur le document
+document.addEventListener("click", function () {
+    console.log("Gestionnaire document");
+});
+// Gestion du clic sur le paragraphe
+document.getElementById("para").addEventListener("click", function (e) {
+    console.log("Gestionnaire paragraphe");
+    e.stopPropagation(); // Arrêt de la propagation de l'événement  
+});
+// Gestion du clic sur le bouton
+document.getElementById("propa").addEventListener("click", function (e) {
+    console.log("Gestionnaire bouton");
+    e.stopPropagation(); // Arrêt de la propagation de l'événement
+});
+
+// La méthode preventDefault permet d'annuler un comportement par défaut comme le clic sur un lien qui déclenche la navigation vers la cible de ce lien
+
+// Gestion du clic sur le lien interdit
+document.getElementById("interdit").addEventListener("click", function (e) {
+    console.log("Continuez plutôt à lire le cours ;)");
+    e.preventDefault(); // Annulation de la navigation vers la cible du lien
+});
