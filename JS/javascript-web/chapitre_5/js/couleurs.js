@@ -1,9 +1,7 @@
 document.addEventListener("keypress", function(e) {
     var touche = String.fromCharCode(e.charCode).toUpperCase();
-    console.log(touche);
     var divElt = document.getElementsByTagName("div");
-  
-
+ 
   	function backgroundColor(couleur) {
   		for(var i = 0; i < divElt.length; i++) {
     		divElt[i].style.backgroundColor = couleur;
@@ -22,5 +20,7 @@ document.addEventListener("keypress", function(e) {
     case "B":
     	backgroundColor("white");
         break;
+    default:
+    	console.log("Touche " + touche + " non gérée");
     }
 });
