@@ -76,10 +76,101 @@ console.log(form.elements.nationalite.value); // Affiche "FR"
 En règle générale, la soumission d'un formulaire se traduit par l'envoi de ses données à la ressource identifiée par l'attribut action de la balise  <form>. Mais avant cela, un événement de type submit est déclenché sur l'élément du DOM correspondant au formulaire. En ajoutant un gestionnaire pour ce type d'événement, on peut accéder aux données du formulaire avant leur envoi. On peut même annuler l'envoi ultérieur des données en appelant la méthode preventDefault sur l'objet Event associé à l'événement.
 */
 
-// Affichage de toutes les données saisies ou choisies
-form.addEventListener("submit", function(e) {
-	var pseudo = form.elements.pseudo.value;
-	var mdp = form.elements.mdp.value;
-	var courriel = form.elements.mdp.valie
-	console.log("Vous avez choisi le pseudo " + pseudo + ", le mot de passe " + mdp + " et le courriel " + courriel);
+// Affiche de toutes les données saisies ou choisies
+form.addEventListener("submit", function (e) {
+    var pseudo = form.elements.pseudo.value;
+    var mdp = form.elements.mdp.value;
+    var courriel = form.elements.courriel.value;
+    console.log("Vous avez choisi le pseudo " + pseudo + ", le mot de passe " +
+        mdp + " et le courriel " + courriel);
+    if (form.elements.confirmation.checked) {
+        console.log("Vous avez demandé une confirmation d'inscription par courriel");
+    } else {
+        console.log("Vous n'avez pas demandé de confirmation d'inscription par courriel");
+    }
+    switch (form.elements.abonnement.value) {
+    case "abonewspromo":
+        console.log("Vous êtes abonné(e) à la newsletter et aux promotions");
+        break;
+    case "abonews":
+        console.log("Vous êtes abonné(e) à la newsletter");
+        break;
+    case "aborien":
+        console.log("Vous n'êtes abonné(e) à rien");
+        break;
+    default:
+        console.log("Erreur : code d'abonnement non reconnu");
+    }
+    switch (form.elements.nationalite.value) {
+    case "FR":
+        console.log("Vous êtes français(e)");
+        break;
+    case "BE":
+        console.log("Vous êtes belge");
+        break;
+    case "SUI":
+        console.log("Vous êtes suisse");
+        break;
+    default:
+        console.log("Erreur : code de nationalité non reconnu");
+    }
+    e.preventDefault(); // Annulation de l'envoi des données
+});
+
+// Vérification de la longueur du mot de passe saisi
+document.getElementById("mdp").addEventListener("input", function (e) {
+    var mdp = e.target.value; // Valeur saisie dans le champ mdp
+    var longueurMdp = "faible";
+    var couleurMsg = "red"; // Longueur faible => couleur rouge
+    if (mdp.length >= 8) {
+        longueurMdp = "suffisante";
+        couleurMsg = "green"; // Longueur suffiusante => couleur verte
+    } else if (mdp.length >= 4) {
+        longueurMdp = "moyenne";
+        couleurMsg = "orange"; // Longueur moyenne => couleur orange
+    }
+    var aideMdpElt = document.getElementById("aideMdp");
+    aideMdpElt.textContent = "Longueur : " + longueurMdp; // Texte de l'aide
+    aideMdpElt.style.color = couleurMsg; // Couleur du texte de l'aide
+});
+
+
+// Validation à la fin de la saisie
+
+/*
+La fin de FOCUS d'un champ déclenche l'évènement de type BLUR que l'on peut exploiter pour contrôler la donnée saisie.
+
+Si l'on souhaite vérifier la présence du cara tère @ dans le courriel
+indexOF permet de chercher une valeur dans une chaîne de caractères et renvoie la valeur -1 si cette valeur n'est pas trouvée.
+*/
+
+// Contrôle du courrierl en fin de saisie
+
+document.getElementById("courriel").addEventListener("blur", function (e) {
+    var validiteCourriel = "";
+    if (e.target.value.indexOf("@") === -1) {
+        // Le courriel saisie ne contient pas le caractère @
+        validiteCourriel = "Adresse invalide";
+    }
+    document.getElementById("aideCourriel").textContent = validiteCourriel;
+});
+
+
+// LAS EXPRESSIONES REGULIERES
+
+var regex = /@/; // La chaîne doit contenir le caractère @
+console.log(regex.test("")); // Affiche false
+console.log(regex.test("@")); // Affiche true
+console.log(regex.test("sopgie&mil.fr")); // Affiche false
+console.log(regex.test("sophie@mail.fr")); // Affiche true
+
+// Contrôle du courriel en fin de saisie
+document.getElementById("courriel").addEventListener("blur", function (e) {
+    // Correspond à une chaîne de la forme xxx@yyy.zzz
+    var regexCourriel = /.+@.+\..+/;
+    var validiteCourriel = "";
+    if (!regexCourriel.test(e.target.value)) {
+        validiteCourriel = "Adresse invalide";
+    }
+    document.getElementById("aideCourriel").textContent = validiteCourriel;
 });
