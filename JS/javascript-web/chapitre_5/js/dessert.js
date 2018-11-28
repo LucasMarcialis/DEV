@@ -1,21 +1,11 @@
 document.querySelector("button").addEventListener("click", function() {
-    var dessert = prompt("Quel dessert voulez-vous ajouter ?");
+    var nomDessert = prompt("Quel dessert voulez-vous ajouter ?");
+    
     var dessertElt = document.createElement("li");
-    dessertElt.id = dessert;
-    dessertElt.textContent = dessert;
+    dessertElt.textContent = nomDessert;
+    dessertElt.addEventListener("click", function (e) {
+    	var nouveauNom = prompt("Modifier le nom du dessert : ", e.target.textContent);
+    	e.target.textContent = nouveauNom;
+    })
     document.getElementById("desserts").appendChild(dessertElt);
 });
-
-document.querySelector("li").addEventListener("click", function () {
-	var dessert = prompt("Que voulez-vous modifier ?");
-	dessertElt.textContent = dessert;
-	//document.getElementById
-})
-
-
-/*
-0) Bonus Modifier un dessert présent dans la liste en cliquant dessus
-Lorsque tu sélectionne un dessert, cela prompt une alerte pour le modifier
-Lorsque tu l'a modifié il s'enregistre en variable
-Cette variable est réinjectée dans l'élément modifié
-*/
