@@ -43,4 +43,6 @@ maisons.forEach(function(maison) {
     var maisonElt = document.createElement("option");
     maisonElt.textContent = maison;
     document.getElementById(maison).appendChild(maisonElt);
-})
+});
+
+// Salut Hugo
