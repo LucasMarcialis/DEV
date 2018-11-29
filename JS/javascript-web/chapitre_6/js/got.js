@@ -28,7 +28,7 @@ function getPersonnages(codeMaison) {
     case "BA":
         return ["Robert", "Stannis", "Renly"];
     case "TA":
-        return ["Aerys", "Daenerys", "Viserys"];
+        return ["Aerys", "Daenerys", "Viserys", "Raegar"];
     default:
         return [];
     }
