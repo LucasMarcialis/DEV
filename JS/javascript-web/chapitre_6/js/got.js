@@ -35,14 +35,24 @@ function getPersonnages(codeMaison) {
 };
 
 
-// Ajouter les maisons à la liste déroulante
-// Ajouter les personnages à la liste #persos
-// cChanger dynamiquement les personnages selon la maison sélectionnée
 
 maisons.forEach(function(maison) {
     var maisonElt = document.createElement("option");
-    maisonElt.textContent = maison;
-    document.getElementById(maison).appendChild(maisonElt);
+    maisonElt.textContent = maison.nom;
+    maisonElt.value = maison.code;
+    document.getElementById("maison").appendChild(maisonElt);
+    
+    document.getElementById("maison").addEventListener("change", function (e) {
+        document.getElementById("persos").innerHTML = "";
+        var personnages = getPersonnages(e.target.value);
+        console.log(personnages);
+        
+        for (var i = 0; i < personnages.length ; i ++ ) {
+            var personnageElt = document.createElement("li");
+            personnageElt.textContent = personnages[i];
+            document.getElementById("persos").appendChild(personnageElt);  
+        }
+    });
+    
 });
 
-// Salut Hugo
