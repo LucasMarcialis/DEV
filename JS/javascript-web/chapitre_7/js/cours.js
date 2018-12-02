@@ -12,14 +12,14 @@ function diminuerCompteur() {
         // Modifie le titre de la page
         var titre = document.getElementById("titre");
         titre.textContent = "BOUM !!!";
-        // Modification du titre au bout de 2 secondes
+    // Modification du titre au bout de 2 secondes
         setTimeout(function () {
             titre.textContent = "Tout est cassé :(";
         }, 2000);
     }
 }
 
-// Appelle la fonction diminuerCompteur toutes les secondes (1000 millisecondes)
+// Appelle la fonction diminuerCompteur toutes les secondes (1000 millisecondes) avec la fonction setInterval();
 var intervalId = setInterval(diminuerCompteur, 1000);
 
 
