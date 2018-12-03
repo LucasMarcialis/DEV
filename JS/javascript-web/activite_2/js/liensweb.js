@@ -62,17 +62,20 @@ listeLiens.forEach(function (lien) {
 var ajouterElt = document.getElementById("ajout");
 
 var formElt = document.querySelector("form");
-formElt.style = "margin-bottom: 10px"
+formElt.style = "margin-bottom: 10px";
 
 var auteurElt = document.createElement("input");
+auteurElt.style = "margin-right: 10px";
 auteurElt.id = "auteur";
 // auteurElt.value = "Entrez votre nom";
 
 var titreElt = document.createElement("input");
+titreElt.style = "margin-right: 10px";
 titreElt.id = "titre";
 // titreElt.value = "Entrez le titre du lien";
 
 var urlElt = document.createElement("input");
+urlElt.style = "margin-right: 10px";
 urlElt.id = "url";
 // urlElt.value = "Entrez l'URL du lien";
 
@@ -80,7 +83,7 @@ var validerElt = document.createElement("input");
 validerElt.type = "submit";
 validerElt.value = "Ajouter";
 
-ajouterElt.addEventListener("click", function () {
+ajouterElt.addEventListener("click", function (e) {
     formElt.innerHTML="";
     formElt.appendChild(auteurElt);
     formElt.appendChild(titreElt);
@@ -88,18 +91,27 @@ ajouterElt.addEventListener("click", function () {
     formElt.appendChild(validerElt);
 });
 
-form.addEventListener("submit", function (e) {
+formElt.addEventListener("submit", function (e) {
     var auteur = form.elements.auteur.value;
     var titre = form.elements.titre.value;
     var url = form.elements.url.value;
-    if ((auteur === "") || (titre === "") || (url === "")) {
-        e.preventDefault;
-    }
+    //if ((auteur === "") || (titre === "") || (url === "")) {}
+    var lienObject = { titre: titreElt.value, url: urlElt.value, auteur: auteurElt.value};
+    console.log(lienObject);
+    listeLiens.push(lienObject);
+    e.preventDefault();
 })
 
-validerElt.addEventListener("click", function (e) {
-    
-})
+
+/* validerElt.addEventListener("submit", function (e) {
+    var lienObject = {
+        titre: titreElt.value,
+        url: urlElt.value,
+        auteur: auteurElt.value
+    }
+    console.log(lienObject);
+    listeLiens.push(lienObject)
+}); */
 
 /*
 La saisie des champs Titre, URL et Auteur du lien est obligatoire.

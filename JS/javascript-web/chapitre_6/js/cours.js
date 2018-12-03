@@ -55,7 +55,7 @@ document.getElementById("nationalite").addEventListener("change", function(e) {
 
 
 
-// LE FORMULAIRE COMME ELEMENT DO DOM
+// LE FORMULAIRE COMME ELEMENT DU DOM
 
 // Accès aux champs du formulaire
 /* 
