@@ -16,7 +16,7 @@ console.log(req.responseText);
 // Création d'une requête HTTP Asynchrone
 var req = new XMLHttpRequest();
 // Requête HTTP GET synchrone vers le fichier langages.txt publié localement
-req.open("GET", "http://localhost/tests/DEV/JS/javascript-web-srv/data/languages.txt");
+req.open("GET", "http://localhost/DEV/JS/javascript-web-srv/data/languages.txt");
 // Envoi de la requête
 req.addEventListener("load", function () {
     if (req.status >= 200 && req.status < 400) { // Le serveur a réussi à traiter la requête
@@ -46,7 +46,7 @@ function afficher(reponse) {
 // > Voir ajax.js
 
 // Exécution d'un appel AJAX GET 2
-ajaxGet("http://localhost/tests/DEV/JS/javascript-web-srv/data/languages.txt", afficher);
+ajaxGet("http://localhost/DEV/JS/javascript-web-srv/data/languages.txt", afficher);
 
 /*
 ajaxGet("http://localhost/javascript-web-srv/data/langages.txt", function (reponse) {
@@ -54,11 +54,24 @@ ajaxGet("http://localhost/javascript-web-srv/data/langages.txt", function (repon
 });
 */
 
-ajaxGet("http://localhost/tests/DEV/JS/javascript-web-srv/data/films.json", function (reponse) {
-    // Transforme la réponse en tableau d'objets JavaScript
+ajaxGet("http://localhost/DEV/JS/javascript-web-srv/data/films.json", function (reponse) {
+    // Transforme la réponse en tableau d'objets JSON
     var films = JSON.parse(reponse);
     // Affiche le titre de chaque film
     films.forEach(function (film) {
         console.log(film.titre);
     })
+});
+
+
+ajaxGet("http://localhost/DEV/JS/javascript-web-srv/data/languages.txt", function (reponse) {
+    // Séparation du texte pour obtenir un tableau contenant les langages
+    var languages = reponse.split(";");
+    var listeElt = document.getElementById("langages");
+    // Ajout de chaque langage dans la liste
+    languages.forEach(function (language) {
+        var languageElt = document.createElement("li");
+        languageElt.textContent = language;
+        listeElt.appendChild(languageElt);
+    });
 });
