@@ -1,11 +1,3 @@
-
-// Image Profil
-// Nom profil
-// site web associé à ce profil
-
-// Lorsque je recherche un profil gitHub > Exact match pour chercher le nom dans l'API
-// D'ou extract de l'ID et récupération de l'image + du site web associé à ce profil
-// Ensuite Afficahge de la donnée
 var form = document.querySelector("form");
 var infos = document.getElementById("infos");
 
