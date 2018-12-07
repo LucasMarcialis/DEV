@@ -11,8 +11,14 @@
     <h1>Activité 1</h1>
 
     <!-- Les nouveaux éléments sont ajoutés dans cette balise -->
-    <form>
-        <button id="ajout">Ajouter un lien</button>
+    <form style="margin-bottom: 10px">
+        <button id="ajout" style ="display: block">Ajouter un lien</button>
+        <div id="formulaire" style="display: none">
+            <input type="text" name="auteur" id="auteur" placeholder="Entrez votre nom" style="margin-right: 10px;" required>
+            <input type="text" name="titre" id="titre" placeholder="Entrez le titre du lien" style="margin-right: 10px;" required>
+            <input type="text" name="url" id="url" placeholder="Entrez l'URL du lien" style="margin-right: 10px;" required>
+            <input type="submit" value="Ajouter">
+        </div>
     </form>
 
     <div id="contenu">

@@ -26,7 +26,7 @@ var listeLiens = [
 
 // TODO : compléter ce fichier pour ajouter les liens à la page web
 
-listeLiens.forEach(function (lien) {
+function ajouterLien (lien) {
     // Création des variables nécessaires
     var divElt = document.createElement("div");
     var aElt = document.createElement("a");
@@ -35,7 +35,7 @@ listeLiens.forEach(function (lien) {
     var pElt = document.createElement("p");
                    
     // Définition des informations des éléments
-    divElt.setAttribute("class", "lien");
+    divElt.setAttribute("class","lien");
     
     aElt.href = lien.url;
     aElt.textContent = lien.titre;
@@ -55,66 +55,26 @@ listeLiens.forEach(function (lien) {
     divElt.appendChild(spanUrlElt);
     divElt.appendChild(pElt);
     pElt.appendChild(spanAuteurElt);
-    document.getElementById("contenu").appendChild(divElt);
-        
-}) 
+    document.getElementById("contenu").appendChild(divElt);    
+}
+
+listeLiens.forEach(function (lien) {
+    ajouterLien(lien);
+}) ;
 
 var ajouterElt = document.getElementById("ajout");
-
-var formElt = document.querySelector("form");
-formElt.style = "margin-bottom: 10px";
-
-var auteurElt = document.createElement("input");
-auteurElt.style = "margin-right: 10px";
-auteurElt.id = "auteur";
-// auteurElt.value = "Entrez votre nom";
-
-var titreElt = document.createElement("input");
-titreElt.style = "margin-right: 10px";
-titreElt.id = "titre";
-// titreElt.value = "Entrez le titre du lien";
-
-var urlElt = document.createElement("input");
-urlElt.style = "margin-right: 10px";
-urlElt.id = "url";
-// urlElt.value = "Entrez l'URL du lien";
-
-var validerElt = document.createElement("input");
-validerElt.type = "submit";
-validerElt.value = "Ajouter";
-
+var formulaireElt = document.getElementById("formulaire")
 ajouterElt.addEventListener("click", function (e) {
-    formElt.innerHTML="";
-    formElt.appendChild(auteurElt);
-    formElt.appendChild(titreElt);
-    formElt.appendChild(urlElt);    
-    formElt.appendChild(validerElt);
+    ajouterElt.style = "display: none";
+    formulaireElt.style = "display: block";
 });
 
+var formElt = document.querySelector("form");
 formElt.addEventListener("submit", function (e) {
-    var auteur = form.elements.auteur.value;
-    var titre = form.elements.titre.value;
-    var url = form.elements.url.value;
-    //if ((auteur === "") || (titre === "") || (url === "")) {}
-    var lienObject = { titre: titreElt.value, url: urlElt.value, auteur: auteurElt.value};
-    console.log(lienObject);
-    listeLiens.push(lienObject);
+    var auteurElt = formElt.elements.auteur.value;
+    var titreElt = formElt.elements.titre.value;
+    var urlElt = formElt.elements.url.value;
+    var article = {titre: titreElt, url: urlElt, auteur: auteurElt};
+    ajouterLien(article);
     e.preventDefault();
-})
-
-
-/* validerElt.addEventListener("submit", function (e) {
-    var lienObject = {
-        titre: titreElt.value,
-        url: urlElt.value,
-        auteur: auteurElt.value
-    }
-    console.log(lienObject);
-    listeLiens.push(lienObject)
-}); */
-
-/*
-La saisie des champs Titre, URL et Auteur du lien est obligatoire.
-Si l’URL saisie ne commence ni par “http://” ni par “https://”, on lui ajoute “http://” au début.
-Lorsque l’utilisateur valide le nouveau lien, celui-ci est ajouté en haut de la page, le formulaire d’ajout disparaît et un message d’information s’affiche pendant 2 secondes.
-*/
+});
