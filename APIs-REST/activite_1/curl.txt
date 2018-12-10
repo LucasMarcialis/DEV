@@ -1,0 +1,6 @@
+curl -X POST -u "apikey:XXXXX" \
+--header "Content-Type: application/json" \
+--header "Accept: audio/wav" \
+--data "{\"text\": \"The IBM® Text to Speech service provides an Application Programming Interface (API) that uses IBMs speech-synthesis capabilities to convert text to an audio signal. The service provides a Representational State Transfer (REST) interface that lets you synthesize written text into natural-sounding speech in a variety of languages, accents, and voices. The service currently synthesizes text from English, French, German, Italian, Japanese, Spanish, or Brazilian Portuguese into audio spoken in a male or female voice (the service supports only a single gender for some languages).\"}" \
+--output openclassrooms.wav \
+"https://gateway-syd.watsonplatform.net/text-to-speech/api/v1/synthesize"

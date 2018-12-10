@@ -1,0 +1,1 @@
+curl -X POST -u "XXXXXX:XXXXXXXXX" --header "Content-Type: application/json" --header "Accept: audio/wav" --data "{\"text\":\"The service currently synthesizes text from English by Lisa\"}" --output C:\Users\Public\Music\openclassroom.wav "https://gateway-syd.watsonplatform.net/text-to-speech/api/v1/synthesize?voice=en-US_LisaVoice"

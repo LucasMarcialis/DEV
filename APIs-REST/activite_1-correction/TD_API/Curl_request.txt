@@ -1,0 +1,1 @@
+curl -X POST -u "apikey:XXXXXXXXXXXXXX" --header "Content-Type: application/json" --header "Accept: audio/wav" --data "{\"text\":\"All you need is the plan, the road map, and the courage to press on to your destination\"}" --output TD_API.wav "https://gateway-wdc.watsonplatform.net/text-to-speech/api/v1/synthesize"
