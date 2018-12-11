@@ -15,26 +15,3 @@ span {
     padding: 10px;
     margin-bottom: 10px;
 }
-
-button{
-    margin-bottom: 20px;
-}
-
-#titre{
-    font-size: inherit;
-}
-
-#messageAjout{
-    display: none;
-    color: #357fa3;
-    background-color: #d6ecf6;
-    padding: 20px;
-}
-
-input{
-    margin-right: 10px
-}
-
-form{
-    margin-bottom: 20px;
-}
