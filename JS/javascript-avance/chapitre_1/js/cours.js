@@ -17,3 +17,4 @@ second = prompt('Entrez le second chiffre :');
 result = parseInt(first) + parseInt(second);
 
 alert(result);
+
