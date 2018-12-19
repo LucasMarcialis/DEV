@@ -13,18 +13,29 @@ Une fonction isolée est une IFE : Imediately Invoked Function et est donc une i
 */
 
 // Ce code :
-(function test() {
+(function Test() {
 	// Code isolé
 });
 
 // Devient :
-(test)();
+/* (Test)(); */
 
 // Qui devient :
-test();
+/* Test(); */
 
 // Si l'on anonymise la fonction, on obtient une fonction isolée :
 
 (function () {
 	// Code isolé
 })();
+
+var test = "noir";
+
+(function() { // Début de la zone isolée
+	var test = "blanc";
+
+	alert ("Dans la zone isolée la couleur est : " + test);
+
+})(); // fin de la zone isolée, les variables créées dans cette zone sont alors détruites
+
+alert ("Dans la zone non-isolée, la couleur est : " + test);
