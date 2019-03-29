@@ -40,3 +40,22 @@ Toute variable non déclarée (sans le mot var), deviendra immédiatement une pr
 })();
 
 alert(text);
+
+/*
+JavaScript va chercher à résoudre le problème que nous lui avons donné càd attribuer une valeur pour la variable text. Ne la trouvant pas en tant que "text", il va la chercher en tant que "window.text"
+Ce qui veut dire qu'en écrivant :
+*/
+text = "Variable accessible !";
+// Le code sera alors interprété de cette manière si aucune variable accessible n'existe avec ce nom :
+window.text = "Variable accessible";
+
+// Le document
+/*
+L'objet document est un sous-objet de window, l'un des plus utilisés. Et pour cause, il représente la page Web et plus précisément la balise <html>. C'est grâce à cet élément-là que nous allons pouvoir accéder aux éléments HTML et les modifier. 
+*/
+
+// NAVIGUER DANS LE DOCUMENT
+// La structure DOM
+/*
+Le DOM est une architecture du code HTML sous forme d'arborescence.
+L'élément html contient des enfants head et body. Pour chaque enfant
