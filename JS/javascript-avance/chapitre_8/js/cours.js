@@ -1,4 +1,7 @@
 // Ici nous créons une fonction JavaScript, avec quelques erreurs de syntaxe.
+
+
+/*
 function test() {
     alert('Hello !');
 }
@@ -26,12 +29,12 @@ console.log(helloArray);
 // On déclare une variable contenant un texte quelconque.
 var myVar = 'Hello';
     
-// Toutes les secondes, on affiche le contenu de cette variable dans la console.
+// Toutes les secondes, on affiche le contenu de cette myvariable dans la console.
 setInterval(function() {
     console.log(myVar);
 }, 1000);
 
-
+*/
 
 // La fonction « a » affiche la valeur qu'elle reçoit de « b ».
 function a(value) {
@@ -52,6 +55,7 @@ function c(value) {
 for (var i = 0; i < 10; i++) {
     c(i);
 }
+
 
 // On utilise ci-dessous une IIFE, on déclare donc une fonction anonyme que l'on exécute immédiatement.
 (function anonymousWasHere() {

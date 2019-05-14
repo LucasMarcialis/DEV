@@ -142,7 +142,7 @@ for (var i = 0; i < myArray.length; i++) {
 }
 /* Attention à la condition
 Nous avons volontairement mal rédigé le code précédent. En effe,t dans le chapitre sur les boucles, nous avons dit que le deuxième bloc d'une boucle for, le bloc de condition était exécuté à chaque itération.
-Ici cela veut donc dire que myArray.length est utilisé à chaque itération, ce qui, à part ralentir la boucle, n'a que peu d'intérêt puisque le nombre d'itels du tableau ne change normalement pas (dans le cas contraire n'utilisez pas la solution qui suit).
+Ici cela veut donc dire que myArray.length est utilisé à chaque itération, ce qui, à part ralentir la boucle, n'a que peu d'intérêt puisque le nombre d'items du tableau ne change normalement pas (dans le cas contraire n'utilisez pas la solution qui suit).
 L'astuce est de définir une seconde variable, dans le bloc d'initialisation qui contiendra la valeur de length. On utilisera cette variable pour la condition :
 "c" est utilisé comme nom de variable ce qui signifie count (compter) en anglais
 */
@@ -152,7 +152,7 @@ for (var i = 0, c = myArray.length; i < c; i++) {
 
 // Les objets littéraux
 /*
-S'il est possible d'accéder aux items d'un tableau via leur indice, il peut être pratique d'y accéder au moyen d'un identifiant. Par exemple, dans le tableau des prénoms, l'iem appelé sister pourrait retourner la valeur "Laurence"
+S'il est possible d'accéder aux items d'un tableau via leur indice, il peut être pratique d'y accéder au moyen d'un identifiant. Par exemple, dans le tableau des prénoms, l'item appelé sister pourrait retourner la valeur "Laurence"
 */
 var family = {
 	self: 'Sébastien',
