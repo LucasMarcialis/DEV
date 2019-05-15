@@ -150,4 +150,127 @@ Dans le code précédent, nous avons utilisé une nouvelle propriété nommée i
 */
 
 // L'héritage des propriétés et des méthodes
-/* Le JavaScript voit les éléments HTML comme étant des objets, cela veut donc dire que chaque élément HTML possède des propriétés et des méthodes. Cependant faites bien attention prace que tous ne possèdent pas les mêmes propriétés et méthodes. Certaines sont néanmoins communes à tous les éléments HTML, car tous les éléments HTML sont d'un même type : le type Node, qui signifie noeud en anglais.
+/*
+Le JavaScript voit les éléments HTML comme étant des objets, cela veut donc dire que chaque élément HTML possède des propriétés et des méthodes. Cependant faites bien attention prace que tous ne possèdent pas les mêmes propriétés et méthodes. Certaines sont néanmoins communes à tous les éléments HTML, car tous les éléments HTML sont d'un même type : le type Node, qui signifie noeud en anglais.
+*/
+
+// Notion d'héritage
+/*
+Nous avons vu qu'un élément <div> est un objet HTMLDivElement, mais un objet, en JavaScript, peut appartenir à différents groupes. Ainsi notre <div> est un HTMLDivElement, qui est un sous-objet d'HTMLElement qui est lui-même un sous-objet d'Element.
+
+NODE
+ |
+Element
+ |
+HTMLElement
+ |
+HTMLDivElement
+
+L'objet node apporte un certain nombre de propriétés et de méthodes qui pourront être utilisées depuis un de ses sous-objets. En claire, les sous-objets héritent des propriétés et méthodes de leurs objets parents. Voici ce que l'on appelle l'héritage.
+
+
+/* EDITER LES ELEMENTS HTML */
+/*
+Maintenant que nous avons vu comment accéder à un élément, nous allons voir comment l'éditer. Les éléments HTML sont souvent composés d'attributs (l'attribut href d'un <a> par exemple), et d'un contenu, qui est de type #text. Le contenu peut aussi être un autre élément HTML.
+Comme dit précédemment, un élément HTML est un objet qui appartient à plusieurs objets, et de ce fait, qui hérite des propriétés et méthodes de ses objets parents.
+*/
+
+// LES ATTRIBUTS
+// Via l'objet Element
+/*
+Pour interagir avec les attributs, l'obet Element nous fournit deux méthodes :
+- getAttribute()
+- setAttribute()
+permettant respectivement de récupérer et d'éditer un attribut. Le premiet paramètre est le nom de l'attribut, et le deuxième, dans le cas de setAttribute() uniquement, est la nouvelle valeur à donner à l'attribut.
+Petit exemple :
+*/
+
+/* <a id="myLink" href="http://www.un_lien_quelconque.com">Un lien modifié dynamiquement</a> */
+
+var link = document.getElementById('myLink');
+var href = link.getAttribute('href'); // On récupère l'attribut « href »
+
+console.log(href);
+
+link.setAttribute('href', 'http://www.siteduzero.com'); // On édite l'attribut « href »
+
+/*
+On commence par récupérer l'élément myLink, et on lit son attribut href via getAttribute(). ensuite, on modifie la valeur de l'attribut href avec setAttribute()/ Le lien pointe maintenant vers http://www.siteduzero.com
+*/
+
+// Les attributs accessibles
+/*
+En fait, pour la plupart des éléments courants comme <a>, il est possible d'accéder à un attribut via une propriété. Ainsi, si on veut modifier la destination d'un lien, on peut utiliser la propriété href, comme ceci :
+*/
+
+var link = document.getElementById('myLink');
+var href = link.href;
+
+console.log(href);
+
+link.href = 'http://www.siteduzero.com';
+
+/*
+C'est cette façon de faire que l'on utilisera majoritairement pour les formulaires: pour récupérer ou modofier la valeur d'un champ, on utilisera la propriété value.
+*/
+
+// La classe
+
+/*
+On peut penser que pour modifier l'attribut class d'un élément HTML, il suffit d'utiliser element.class. Ce n'est pas possible car le mot-clé class est réservé en JavaScript, bien qu'il n'ait aucune utilité. A la place de class, il faudra utiliser className.
+*/
+
+// Stylisme de la div myColoredDiv :
+document.getElementById('myColoredDiv').className = 'blue';
+
+/*
+Dans cet exemple, on définit la classe CSS .blue à l'élément myColoredDiv, ce qui fait que cet élément sera affiché avec un arrière-plan bleu et un texte blanc.
+*/
+
+/*
+Faites attention : si votre élément comporte plusieurs classes (exemple : <a class = "external red u">) et que vous récupérez la classe avec className, cette propriété ne retournera pas un tableau avec les différentes classes mais bien la chaîne "external red u", ce qui n'est pas vraiment le comportement souhaité. Il vous faudra alors couper cette chaîne avec la méthode split() pour obtenir un tableau, comme ceci :
+*/
+
+var classes = document.getElementById('myLink').className;
+var classesNew = [];
+classes = classes.split(' ');
+
+for (var i = 0, c = classes.length; i < c; i++) {
+    if (classes[i]) {
+        classesNew.push(classes[i]);
+    }
+}
+
+console.log(classesNew);
+
+/*
+Ici on récupère les classes, on découpe la chaîne, mais comme il se peut que plusieurs espaces soient présents entre chaque nom de classe, on vérifie chaque élément pour voir s'il contient quelque chose (s'il n'est pas vide). On en profite pour créer un nouveau tableau classesNew, qui contiendra les noms des classes sans "parasites".
+
+Si le support d'Internet Explorer avant sa version 10 vous importe peu, vous pouvez aussi vous tourner vers la propriété classList qui permet de consulter les classes sous forme d'un tableau et des les manipuler aisément :
+*/
+
+var div = document.querySelector('div');
+
+// Ajoute une nouvelle classe
+div.classList.add('new-class');
+
+// Retire une classe
+div.classList.remove('new-class');
+
+// Retire une classe si elle est présente ou bien l'ajoute si elle est absente
+div.classList.toggle('toggled-class');
+
+// Indique si une classe est présente ou non
+if (div.classList.contains('old-class')) {
+    console.log('La classe .old-class est présente !');
+}
+
+// Parcourt et affiche les classes CSS
+var result = '';
+
+for (var i = 0; i < div.classList.length; i++) {
+    result += '.' + div.classList[i] + '\n';
+}
+
+alert(result);
+
