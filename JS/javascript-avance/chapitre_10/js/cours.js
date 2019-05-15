@@ -94,11 +94,9 @@ console.log(div);
 
 // getElementsByTagName() :
 /*
-
 Faites très attention dans le nom de cette méthode:  il y a un "s" à Elements. C'est une source fréquente d'erreurs.
 
 Cette méthode permet de récupérer, sous la forme d'un tableau, tous les éléments de la famille. si, dans une page, on veut récupérer tous les <div>, il suffit de faire comme ceci :
-
 */
 
 var divs = document.getElementsByTagName('div');
@@ -106,3 +104,50 @@ var divs = document.getElementsByTagName('div');
 for (var i = 0, c = divs.length ; i < c ; i++) {
 	console.log('Element n° ' + (i + 1) + ' : ' + divs[i]);
 }
+
+/*
+La méthode retourne une collection d'éléments (utilisable de la même manière qu'un tableua). Pour accéder à chaque élément, il est nécessaire de parcourir le tableau avec une petite boucle.
+
+Deux astuces :
+1) Cette méthode est accessible sur n'importe quel élément HTML et pas seulement sur l'objet document
+2) En paramètre de cette méthode vous pouvez mettre une chaîne de caracètres contenant un astérisque* qui récupèrera tous les éléments HTML contenus dans l'élément ciblé.
+*/
+
+// getElementsByName();
+/*
+Cette méthode est samblable à getelementsByTagName() et permet de ne récupérer que les éléments qui possèdent un attribut name que vous spécifiez. L'attribut name n'est utilisé qu'au sein des formulaires, et est déprécié depuis la spécification HTML5 dans tout autre élément que  celui d'un formulaire. Par exemple, vous pouvez vous en servir pour un élément <input> mais pas pour un élément <map>.
+Sachez aussi que cette méthode est dépréciée en XHTML mais est standardisée en HTML5.
+*/
+
+// Accéder aux éléments grâce aux technologies récentes
+/*
+Ces dernières années, le JavaScript a beaucoup évolué pour faciliter le développement Web. Les deux méthodes que nous allons étudier sont récentes et ne sont pas supportées par les très vieilles versions des navigateurs, leur support commence à partir de la version 8 d'Internet Explorer, pour les autres navigateurs, vous n'avez normalement pas de soucis à vous faire.
+
+Ces deux méthodes sont querySelector() et querySelectorAll() et ont pour particularité de grandement simplifier la sélection d'éléments dans l'arbre DOM grâce à leur mode de fonctionnement. 
+
+Ces deux méthodes prennent pour paramètre un seul argument : une chaîne de caractères !
+Cette chaîne de caractères doit être un sélecteur CSS comme ceux que vous utilisez dans vos feuilles de style. Exemple :
+
+#menu . item span
+
+Ce sélecteur CSS stipule que l'on souhaite sélectionner les balises de type <span> contenues dans les classes .item elle mêmes contenues dans un élément dont l'identifiant est #menu
+
+Le principe est pltôt simple mais très efficace. Sachez que ces deux méthdes supportent aussi les sélecteurs CSS 3, bien plus complets !
+
+Voyons maintenant les particularités de ces deux méthodes. La première querySelector(), renvoie le premier élément trouvé correspondant au sélecteur CSS, tandis que querySelectorAll() va renvoyer tous les éléments (sous forme de tableau), correspondant au sélecteur CSS fourni. Prenon un exemple simple via le code HTML de ce cours.
+*/
+
+var query = document.querySelector('#menu .item span'),
+	queryAll = document.querySelectorAll('#menu .item span');
+
+console.log(query.innerHTML); // Affiche : "Element 1"
+
+console.log(queryAll.length);
+console.log(queryAll[0].innerHTML + ' - ' + queryAll[1].innerHTML) // Affiche : "Element 1 - Element 2"
+
+/*
+Dans le code précédent, nous avons utilisé une nouvelle propriété nommée innerHTML qui permet d'accéder au contenu d'un élément HTML.
+*/
+
+// L'héritage des propriétés et des méthodes
+/* Le JavaScript voit les éléments HTML comme étant des objets, cela veut donc dire que chaque élément HTML possède des propriétés et des méthodes. Cependant faites bien attention prace que tous ne possèdent pas les mêmes propriétés et méthodes. Certaines sont néanmoins communes à tous les éléments HTML, car tous les éléments HTML sont d'un même type : le type Node, qui signifie noeud en anglais.
