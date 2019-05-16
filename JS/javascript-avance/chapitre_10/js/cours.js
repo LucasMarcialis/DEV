@@ -274,3 +274,44 @@ for (var i = 0; i < div.classList.length; i++) {
 
 alert(result);
 
+// Le contenu : innerHTML
+
+/*
+La propriété innerHTML est spéciale et demande une petite introduction. Elle a été crée par Microsoft pour les besoins d'Internet Explorer et a été normalisée au sein du HTML5. Bien que non normalisée pendant des années, elle est devenue un standard parce que tous les navigateurs la supportaient déjà, et non l'inverse comme c'est généralement le cas.
+*/
+
+// Récupérer du HTML
+/*
+innerHTML permet de récupérer le code HTML enfant d'un élément sous forme de texte. Ainsi, si des balises sont présentes, innerHTML les retournera sous forme de texte :
+*/
+
+var div = document.getElementById('myDiv');
+
+console.log(div.innerHTML);
+
+// ajouter ou éditer du HTML
+
+/*
+Pour éditer ou ajouter du contenu HTML, il suffit de faire l'inverse, c'est-à-dire de définir un nouveau contenu :
+*/
+
+document.getElementById('myDiv').innerHTML = '<blockquote> Je mets une citation à la place du paragraphe <blockquote>';
+
+/*
+Si vous voulez ajouter du contenu, et ne pas modifier le contenu déjà en place, il suffit d'utiliser += à la place de l'opérateur d'affectation :
+*/
+
+document.getElementById('myDiv').innerHTML += ' et <strong>une portion mise en emphase</strong>';
+
+/*
+toutefois, une petite mis en garde : il ne faut pas utiliser le += dans une boucle ! En effet, innerHTML ralentit considérablement l'exécution du code si l'on opère de cette manière, il vaut donc mieux concaténer son texte dans une variable pour ensuite ajouter le tout via innerHTML. Exemple :
+*/
+
+var text ='Salut';
+
+
+for (var i = 1, c = 4; i < c; i++) {
+	text += ' salut n°' + i + ' '; // On concatèe dans la variable "text"
+}
+
+document.getElementById('item2') += element.innerHTML = text; // Une fois la concaténation terminée, on ajoute le tout à "element" via innerHTML
