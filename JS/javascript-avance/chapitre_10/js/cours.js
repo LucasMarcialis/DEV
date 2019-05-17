@@ -307,11 +307,77 @@ document.getElementById('myDiv').innerHTML += ' et <strong>une portion mise en e
 toutefois, une petite mis en garde : il ne faut pas utiliser le += dans une boucle ! En effet, innerHTML ralentit considérablement l'exécution du code si l'on opère de cette manière, il vaut donc mieux concaténer son texte dans une variable pour ensuite ajouter le tout via innerHTML. Exemple :
 */
 
-var text ='Salut';
+var text ='Salut n°1';
 
 
-for (var i = 1, c = 4; i < c; i++) {
-	text += ' salut n°' + i + ' '; // On concatèe dans la variable "text"
+for (var i = 2, c = 10; i < c; i++) {
+	text += ' salut n°' + i ; // On concatèe dans la variable "text"
 }
 
-document.getElementById('item2') += element.innerHTML = text; // Une fois la concaténation terminée, on ajoute le tout à "element" via innerHTML
+var divItem = document.getElementById('item2');
+divItem.innerHTML += text; // Une fois la concaténation terminée, on ajoute le tout à "element" via innerHTML
+
+
+// innerText et textContent
+
+/*
+Penchons-nous maintenant sur deux propriétés analogues à innerHTML : innerText pour Internet Explorer et textContent pour les autres navigateurs.
+*/
+
+// innerText
+/*
+La propriété innerText a aussi été introduite dans Internet Explorer, mais à la différence de sa soeur innerHTML, elle n'a jamais été standardisée et n'est pas supportée par tous les navigateurs. Internet Explorer pour toute version antérieure à la neuvième ne supporte que cette propriété et non pas la version standardisée que nous verrons par la suite.
+Le fonctionnement d'innerText est le même qu'innerHTML excepté le fait  que seul le texte est récupéré, et non les balises. C'est pratique pour récupérer du contenu sans le balisage, petit exemple :
+*/
+
+var div = document.getElementById('myDiv');
+console.log(div.innerText);
+
+// textContent
+
+/*
+La propriété textContent est la version standardisée d'innerText, elle est reconnue par tous les navigateurs à l'exception des versions d'Internet Explorer antérieurs à la 9. Le fonctionnement est évidemment le même. Maintenant une question se pose : comment faire un script qui fonctionne à la fois pour Internet Explorer et les autres navigateurs ? c'est ce que nous allons voir !
+*/
+
+// Tester le navigateur
+
+/*
+Il est possible via une simple condition de tester si le navigateur prend en charge telle ou telle méthode ou propriété.
+*/
+
+var div = document.getElementById('myDiv2'),
+    txt = '';
+
+if (div.textContent) { // "textContent" existe ? Alors on s'en sert !
+    txt = div.textContent;
+} else if (div.innerText) { // "innerText" existe ? Alors on doit être sous IE.
+    txt = div.innerText + ' [via Internet Explorer]';
+} else { // Si aucun des deux n'existe, cela est sûrement dû au fait qu'il n'y a pas de texte
+    txt = ''; // On met une chaîne de caractères vide
+}
+
+console.log(txt);
+
+
+var div = document.getElementById('myDiv2'),
+    txt2 = '';
+
+txt2 = div.textContent || div.innerText || '';
+
+console.log(txt2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
