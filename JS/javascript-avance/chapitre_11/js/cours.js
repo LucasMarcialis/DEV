@@ -122,7 +122,6 @@ Tout comme pour firstChild et lastchild, sachez qu'il existe les propriétés ne
 */
 
 // Attention aux noeuds vides
-console.log('[attention aux noeuds vides]');
 
 /*
 chaque espace entre les éléments tout comme les retours à la ligne sont considérés comme des noeuds textuels (cela dépend des navigateurs) !
@@ -132,7 +131,7 @@ Heureusement, il existe une solution à ce problèùe ! Les attributs firstEleme
 
 
 // CREER ET INSERER DES ELEMENTS
-console.log('[Créer et insérer des éléments');
+console.log('[Créer et insérer des éléments]');
 // Ajouter des éléments HTML
 
 /*
@@ -173,12 +172,11 @@ On va ajouter notre élément <a> dans l'élément <p> portant l'ID myP2. Pour c
 document.getElementById('myP3').appendChild(newLink);
 
 /*
-On voit que l'élément <a> existe, mais n'est pas lié. Un peu comme s'il était libre dans le document : il n'est pas encore placé. Le but est de le placer comme enfant de l'élément myP3. La méthode appendchild() va alors déplacer notre <a> pour le placer en tant que dernier enfant de myP3.
+On voit que l'élément <a> existe, mais n'est pas lié. Un peu comme s'il était libre dans le document : il n'est pas encore placé. Le but est de le placer comme enfant de l'élément myP3. La méthode appendChild() va alors déplacer notre <a> pour le placer en tant que dernier enfant de myP3.
 Cela veut dire qu'appendChild insérera toujours l'élément en tant que dernier enfant, ce qui n'est pas toujours très pratique.
 */
 
 // Ajouter des noeuds textuels
-console.log('[Ajouter des noeuds textuels - createTextNode()');
 
 /*
 L'élément a été inséré, seulement il manque quelque chose:  le contenu textuel ! La méthode createTextNode() sert à créer un noeud textuel (de type #text) qui'l nous suffira d'ajouter à notre élément fraichement inséré comme ceci :
@@ -187,3 +185,44 @@ L'élément a été inséré, seulement il manque quelque chose:  le contenu tex
 var newLinkText = document.createTextNode("Le site du Zéro");
 
 newLink.appendChild(newLinkText);
+
+/*
+L'insertion se fait ici aussi avec appendChild(), sur l'élément newLink. Afin d'y voir plus clair, résumons le code :
+*/
+
+var newLink = document.createElement('a');
+
+newLink.id = 'sdz_link';
+newLink.href = 'http://www.lesiteduzero.com';
+newLink.title = 'Découvrez le Site du Zéro !';
+newLink.setAttribute('tabindex', '10');
+
+document.getElementById('myP3').appendChild(newLink);
+
+var newLinkText = document.createTextNode('Le Site du Zéro');
+
+newLink.appendChild(newLinkText);
+
+/*
+Le fait d'insérer via appendChild() n'a aucune incidence sur l'ordre d'exécution des instructions. Cela veut donc dire que l'on peut travailler sur les éléments HTML et les noeuds textuels sans qu'ils soient au préalable insérés dans le document. Par exemple, on pourrait ordonner le code comme ceci : 
+*/
+
+var newLink = document.createElement('a');
+var newLinkText = document.createTextNode("Le Site du Zéro");
+
+newLink.id = 'sdz_link';
+newLink.href = 'http://www.siteduzero.com';
+newLink.title = 'Découvrez le Site du Zéro !';
+newLink.setAttribute('tabindex', '10');
+
+newLink.appendChild(newLinkText);
+
+document.getElementById('myP').appendChild(newLink);
+
+/*
+Ici, on commence par créer les deux éléments (le lien et le noeud de texte), puis on affecte les variables au lien et on lui ajoute le noeud textuel. a ce stade-ci, l'élément HTML contient le noeud textuel, mais cet éléments n'est pas encore inséré dans le document.
+La dernière instruction insère alors le tout.
+*/
+/*
+Nous vous conseillons d'organiser votre code comme le dernier exemple, c'est-à-dire avec la création de tous les éléments au début, puis les différentes opérations d'affectation. Enfin, l'insertion des éléments les uns dans les autres et, pour terminer, l'insertion dans le document. au moins comme ça c'est structuré, clair et surtout bien plus performant !
+*/
