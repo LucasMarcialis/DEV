@@ -208,7 +208,7 @@ Le fait d'insérer via appendChild() n'a aucune incidence sur l'ordre d'exécuti
 */
 
 var newLink = document.createElement('a');
-var newLinkText = document.createTextNode("Le Site du Zéro");
+var newLinkText = document.createTextNode("Le Site du Zéro ");
 
 newLink.id = 'sdz_link';
 newLink.href = 'http://www.siteduzero.com';
@@ -217,12 +217,55 @@ newLink.setAttribute('tabindex', '10');
 
 newLink.appendChild(newLinkText);
 
-document.getElementById('myP').appendChild(newLink);
+document.getElementById('myP3').appendChild(newLink);
 
 /*
 Ici, on commence par créer les deux éléments (le lien et le noeud de texte), puis on affecte les variables au lien et on lui ajoute le noeud textuel. a ce stade-ci, l'élément HTML contient le noeud textuel, mais cet éléments n'est pas encore inséré dans le document.
 La dernière instruction insère alors le tout.
 */
+
 /*
 Nous vous conseillons d'organiser votre code comme le dernier exemple, c'est-à-dire avec la création de tous les éléments au début, puis les différentes opérations d'affectation. Enfin, l'insertion des éléments les uns dans les autres et, pour terminer, l'insertion dans le document. au moins comme ça c'est structuré, clair et surtout bien plus performant !
+*/
+
+/*
+appendChild() retourne une référence pointant sur l'objet qui vient d'être inséré. Cela peut servir dans le cas où vous n'avez pas déclaré de variable intermédiaire lors du processus de création de votre élément. Par exemple, le code suivant ne pose pas de problème :
+*/
+
+var span = document.createElement('span');
+document.body.appendChild(span);
+
+span.innerHTML = 'Du texte en plus !';
+
+/*
+En revanche, si vous retirez l'étape intermédiaire (la première ligne) pour gagner une ligne de code alors vous allez être embtêté pour modifier le contenu :
+*/
+document.body.appendChild(document.createElement('span'));
+
+span.innerHTML = 'Du texte en plus !'; // La variable "span" n'existe plus ... Le code plante.
+/*
+La solution a ce probleme est d'utiliser la référence  retournée par appendChild () :
+*/
+
+var span = document.body.appendChild(document.createElement('span'));
+
+span.innerHTML = 'Du texte en plus !'; // Là, tout fonctionne !
+
+console.log(span);
+
+
+// NOTIONS SUR LES REFERENCES
+
+/*
+En JavaScript et comme dans beaucoup de languages, le contenu des variables est "passé par valeur". Cela veut donc dire que si une variable nick1 contient le prénom "Clarisse" et qu'on affecte cette valeur à une autre variable. La valeur est copiée dans la nouvelle. On obtient alors deux variables distinctes contenant la même valeur :
+*/
+
+var nick1 = 'Clarisse';
+var nick2 = nick1;
+
+/* Si on modifie la valeur de nick2, la valeur de nick1 reste inchangée : normal, les deux variables sont bien distinctes */
+
+// Les références
+/*
+
 */
