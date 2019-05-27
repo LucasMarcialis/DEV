@@ -267,5 +267,73 @@ var nick2 = nick1;
 
 // Les références
 /*
-
+Outre le "passage par valeur", le javaScript possède un "passage par référence". En fait, quand une variable est crée, sa valeur est mise en mémoire par l'ordinateur. Pour pouvoir retrouver cette valeur, elle est associée à une adresse que seul l'ordinateur connaît et manipule (on ne s'en occupe pas).
+Quand on passe une valeur par référence, on transmet l'adresse de la valeur, ce qui va permettre d'avoir deux variables qui pointent sur une même valeur !
+Un exemple théorique d'un passage par référence n'est pas vraiment envisageable à ce stade du tutoriel, il faudra attendre d'aborder le chapitre sur la création d'objets. Cela dit, quand on manipule une page Web avec le DOM, on est confrontés à des références, tout comme dans le chapitre suivant sur les évènements.
 */
+
+// Les références avec le DOM
+/*
+Schématiser le concept de référence avec le DOM est assez simple : deux variables peuvent accéder au même élément. Regardez cet exemple :
+*/
+
+var newLink = document.createElement('a');
+var newLinkText = document.createTextNode(' - Le Site du Zéro lien n°X');
+
+newLink.id = 'sdz_link';
+newLink.href = 'http://www.siteduzero.com';
+
+newLink.appendChild(newLinkText);
+
+document.getElementById('myP3').appendChild(newLink);
+
+// On récupère, via son ID, l'élément fraîchement inséré
+var sdzLink = document.getElementById('sdz_link');
+
+sdzLink.href = 'http://www.siteduzero.com/forum.html';
+
+// newLink.href affiche bien la nouvelle URL :
+console.log(newLink.href);
+
+/*
+La variable newLink contient en réalité une référence vers l'élément <a> qui a été créé. newLink ne contient pas l'élément, il contient une adresse qui pointe vers ce fameux <a>. Une fois que l'élément HTML est inséré dans la page, on peut y accéder de nombreuses autres façons, comme avec getElementById(). Quand on accède à un élément via getElementById(), on le fait aussi au moyen d'une référence.
+Ce qu'il faut retenir de tout ça, c'est que les objets du DOM sont toujours accessibles par référence, et c'est la raison pour laquelle ce code ne fonctionne pas :
+*/
+
+var newDiv1 = document.createElement('div');
+var newDiv2 = newDiv1; // On tente de copier le <div>
+
+/*
+Eh oui, si vous avez tout suivi, newDiv2 contient une référence qui pointe vers le même <div> que newDiv1. Mais comment duppliquer un élément alors ? Eh bien, il faut le cloper, et c'est ce que nous allons voir maintenant :
+*/
+
+// CLONER, REMPLACER, SUPPRIMER...
+
+// Cloner un élément
+console.log('cloneNode()');
+/*
+Pour cloner, un élément, rien de plus simple : cloneNode(). Cette méthode requiert un paramètre booléen (true ou false) : si vous désirez cloner le noeud avec (true) ou sans (false) ses enfants et ses différents attributs.
+Petit exemple très simple : on créé un élément <hr />, et on en veut un deuxième, donc on clone le premier :
+*/
+
+// On va cloner un élément créé :
+var hr1 = document.createElement('hr');
+var hr2 = hr1.cloneNode(false); // Il n'y a pas d'enfants..
+
+// Ici on clone un élément existant :
+var paragraph1 = document.getElementById('myP3');
+var paragraph2 = paragraph1.cloneNode(true);
+
+// Et attention, l'élément est cloné, mais pas "inséré" tan que l'on a pas appelé appendChild();
+paragraph1.parentNode.appendChild(paragraph2);
+console.log(paragraph2);
+
+/*
+Une chose très importante à retenir, bien qu'elle ne vous concernera qu'au chapitre suivant, est que la méthode cloneNode() ne copie malheureusement pas les événements associés et créés avec le DOM (avec addEventListener()), même avec un paramètre à true. Pensez bien à cela !
+*/
+
+// Remplacer un élément par un autre
+/*
+Pour remplacer un élément
+*/
+console.log('replaceChild()');
