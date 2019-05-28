@@ -333,7 +333,27 @@ Une chose très importante à retenir, bien qu'elle ne vous concernera qu'au cha
 */
 
 // Remplacer un élément par un autre
-/*
-Pour remplacer un élément
-*/
 console.log('replaceChild()');
+/*
+Pour remplacer un élément, rien de plus simple, il y a replaceChild(). Cette méthode accepte deux paramètres : le premier est le nouvel élément et le deuxième est l'élément à remplacer. Tout comme cloneNode(), cette méthode s'utilise sur tous les types de noeuds (éléments, noeuds textuels, etc.)
+Dans l'exemple suivant, le contenu textuel (pour rappel il s'agit du premier enfant de <a> du lien va être remplacé par un autre. La méthode replaceChild() est exécutée sur l'élément <a>, c'est-à-dire le noeud parent du noeud à remplacer.)
+*/
+
+var link = document.querySelector('a');
+var newLabel = document.createTextNode('et un hyperlien');
+
+link.replaceChild(newLabel, link.firstChild);
+
+// Supprimer un élément
+var link = document.querySelector('a');
+link.parentNode.removeChild(link);
+
+/*
+A noter que la méthode removeChild() retourne l'élément supprimé ce qui veut dire qu'il est parfaitement possible de supprimer un élémnt HTML pour ensuite le réintégrer au DOM :
+*/
+
+var link = document.querySelector('a');
+
+var oldLink = link.parentNode.removeChild(link); // On supprime l'élément et on le garde en stock
+
+document.body.appendChild(oldLink); // On réintègre ensuite l'élément supprimé où on veut et quand on veut
