@@ -357,3 +357,54 @@ var link = document.querySelector('a');
 var oldLink = link.parentNode.removeChild(link); // On supprime l'élément et on le garde en stock
 
 document.body.appendChild(oldLink); // On réintègre ensuite l'élément supprimé où on veut et quand on veut
+
+
+// AUTRES ACTIONS
+// Vérifier la présence d'éléments enfants
+console.log('hasChildNodes()')
+/*
+Rien de plus facile pour vérifier la présence d'éléments enfants : hasChildNodes(). Il suffit d'utiliser cette méthode sur l'élément de votre choix : si cet élémenyt possède au moins un enfant, lé méthode renverra true :
+*/
+
+var paragraph = document.querySelector('p');
+
+console.log(paragraph.hasChildNodes()); // Affiche true
+
+// Insérer à la bonne place : insertBefore()
+/*
+La méthode insertBefore() permet d'insérer un élément avant un autre. Elle reçoit deux paramètres : le premier est l'élément à insérer, tandis que le deuxième est l'élément avant lequel l'élément va être inséré. Exemple :
+*/
+
+var paragraph = document.getElementById('myP2'),
+	emphasis = document.createElement('em'),
+	emphasisText = document.createTextNode('en emphase légère ');
+
+emphasis.appendChild(emphasisText);
+
+paragraph.insertBefore(emphasis, paragraph.lastChild);
+
+// Une bonne astuce : insertAfter()
+console.log('insertAfter()');
+/*
+Le javaScript met à disposition insertBefore() mais pas insertAfter(). C'est dommage car, bien que l'on puisse s'en passer, cela est parfois assez utile. Qu'à cela ne tienne, créons donc une telle fonction.
+Malheureusement, il ne nous est pas possible à ce stade-ci du cours de créer une méthode qui s'appliquerait comme ceci :
+// element.insertAfter(newElement, afterElement);
+Non, il va nous falloir nous contenter d'une "simple" fonction :
+// insertAfter(newElement, afterElement);
+*/
+
+// Algorithme
+/*
+Pour insérer après un élément, on va d'abord récupérer l'élément parent. C'est logique, puisque l'insertion de l'élément va se faire soit via appendChild(), soit via insertBefore(): si on veut ajouter notre élément après le dernier enfant, c'est simple, il suffit d'appliquer appendChild(). Par contre, si l'élément après lequel on veut insérer notre élément n'est pas le dernier, on va utiliser insertBefore()en ciblant l'enfant suivant, avec nextSibling
+*/
+
+function insertAfter(newElement, afterElement) {
+    var parent = afterElement.parentNode;
+	
+    if (parent.lastChild === afterElement) { // Si le dernier élément est le même que l'élément après lequel on veut insérer, il suffit de faire appendChild()
+        parent.appendChild(newElement);
+    } else { // Dans le cas contraire, on fait un insertBefore() sur l'élément suivant
+        parent.insertBefore(newElement, afterElement.nextSibling);
+    }
+}
+
