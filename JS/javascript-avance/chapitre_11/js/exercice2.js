@@ -6,7 +6,7 @@ var textNodes = [
     document.createTextNode('JavaScript'),
     document.createTextNode('JScript'),
     document.createTextNode('ActionScript'),
-    document.createTextNode('EX4'),
+    document.createTextNode('EX4')
 ];
 
 var paragraph = document.createElement('p');
