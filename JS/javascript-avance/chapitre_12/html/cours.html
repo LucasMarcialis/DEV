@@ -7,6 +7,62 @@
 </head>
 
 <body>
+    <span onclick="alert('Hello !');">Cliquez-moi !</span>
+    <br />
+    <br />
+    <span onclick="alert('Voici le contenu de l\'élément que vous avez cliqué :\n\n' + this.innerHTML);">Cliquez-moi !</span>
+    <br />
+    <br />
+    <input id="input" type="text" size="50" value="Cliquez ici !" onfocus="this.value='Appuyez maintenant sur votre touche de tabulation.';" onblur="this.value='Cliquez ici !';"/>
+    <br/>
+    <a href="#" onfocus="document.getElementById('input').value = 'Vous avez maintenant le focus sur le lien, bravo !';">Un lien bidon</a>
+    <br />
+    <br />
+    <a href="http://www.siteduzero.com" onclick="alert('Vous avez cliqué !');">Cliquez-moi !</a>
+    <br />
+    <br />
+    <a href="http://www.siteduzero.com" onclick="alert('Vous avez cliqué !'); return false;">Cliquez-moi !</a>
+    <br />
+    <br />
+    <a href="#" onclick="alert('Vous avez cliqué !'); return false;">Cliquez-moi !</a>
+    <br />
+    <br />
+    <h2>DOM-0</h2>
+    <span id="clickme">Cliquez-moi !</span>
+    <script>
+        var element = document.getElementById('clickme');
+        element.onclick = function() {
+            alert("Vous m'avez cliqué !");
+        };
+    </script>
+    <br />
+    <br />
+    <h2>DOM-2</h2>
+    <span id="clickme2">Cliquez-moi !</span>
+
+    <script>
+        var element = document.getElementById('clickme2');
+
+        element.addEventListener('click', function() {
+            alert("Vous m'avez cliqué !");
+        });
+    </script>
+    <br />
+    <span id="clickme3">Cliquez-moi !</span>
+    <script>
+        var element = document.getElementById('clickme3');
+
+        // Premier événement click
+        element.addEventListener('click', function() {
+            alert("Et de un !");
+        });
+      
+        // Deuxième événement click
+        element.addEventListener('click', function() {
+            alert("Et de deux !");
+        });
+    </script>
+
     <script src="../js/cours.js"></script>
 </body>
 
