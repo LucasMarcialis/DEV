@@ -62,6 +62,72 @@
             alert("Et de deux !");
         });
     </script>
+    <br/>
+    <br/>
+    <h2>Capture et Bouillonnement</h2>
+    <div>
+        <span>Du texte !</span>
+    </div>
+    <br />
+    <div id="capt1">
+        <span id="capt2">Cliquez-moi pour la phase de capture.</span>
+    </div>
+
+    <div id="boul1">
+        <span id="boul2">Cliquez-moi pour la phase de bouillonnement.</span>
+    </div>
+
+    <script>
+        var capt1 = document.getElementById('capt1'),
+            capt2 = document.getElementById('capt2'),
+            boul1 = document.getElementById('boul1'),
+            boul2 = document.getElementById('boul2');
+      
+        capt1.addEventListener('click', function() {
+            alert("L'événement du div vient de se déclencher.");
+        }, true);
+      
+        capt2.addEventListener('click', function() {
+            alert("L'événement du span vient de se déclencher.");
+        }, true);
+      
+        boul1.addEventListener('click', function() {
+            alert("L'événement du div vient de se déclencher.");
+        }, false);
+      
+        boul2.addEventListener('click', function() {
+            alert("L'événement du span vient de se déclencher.");
+        }, false);
+    </script>
+    <br />
+    <br />
+    <span id="clickme4">Cliquez-moi !</span>
+
+    <script>
+        var clickme4 = document.getElementById('clickme4');
+      
+        clickme4.addEventListener('click', function(e) {
+            e.target.innerHTML = 'Vous avez cliqué !';
+        });
+    </script>
+    <br />
+    <br />
+    <p id="result"></p>
+
+    <div id="parent1">
+        Parent
+        <div id="child1">Enfant N°1</div>
+        <div id="child2">Enfant N°2</div>
+    </div>
+
+    <script>
+        var parent1 = document.getElementById('parent1'),
+            result = document.getElementById('result');
+      
+        parent1.addEventListener('mouseover', function(e) {
+            result.innerHTML = "L'élément déclencheur de l'événement \"mouseover\" possède l'ID : " + e.target.id;
+        });
+    </script>
 
     <script src="../js/cours.js"></script>
 </body>

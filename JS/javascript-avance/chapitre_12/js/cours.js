@@ -117,4 +117,42 @@ Toutes deux permettent de définir le sens de propagation des événements.
 */
 /*
 La propagation d'un événement décide le sens dans lequel l'événement va se déclencher.
+Si nous attribuons une fonction à l'événement click de chacun de ces deux éléments (div et span avec Du texte !), quel événement va se déclencher en premier à votre avis ?
+Si vous décider d'utiliser la capture, alors l'événement du <div> se déclenchera en premier puis viendra ensuite l'événement du <span>. En revanche, si vous utilisez le bouillonnement, ce sera d'abord l'événement du <span> puis celui du <div>.
+La phase de bouillonnement est définie par défaut.
 */
+
+// L'OBJET EVENT
+
+/*
+L'objet Event sert à fournir une multitude d'informations sur l'événement actuellement déclenché. Par exemple, vous pouvez récupérer quelles sont les touches actuellement enfoncées, les coordonnées du curseur, l'élément qui a éclenché l'événement.
+Cet objet est bien particulier dans le sens où il n'est accessible que lorsqu'un événement est déclenché. Son accès ne peut se faire que dans une fonction exécutée par un événement, cela se fait de la manière suivante avec le DOM-0.
+*/
+
+element.onclick = function(e) { // L'argument « e » va récupérer une référence vers l'objet « Event »
+    alert(e.type); // Ceci affiche le type de l'événement (click, mouseover, etc.)
+};
+
+// Et de cette manière là avec le DOM-2
+
+element.addEventListener('click', function(e) { // L'argument « e » va récupérer une référence vers l'objet « Event »
+    alert(e.type); // Ceci affiche le type de l'événement (click, mouseover, etc.)
+});
+
+/*
+Il est important de préciser que l'oijet Event peut se récupérer dans un argument autre que e. Après tout, l'objet Event est tout simplement passé en référence à l'argument de votre fonction, ce qui vous permet de choisir le nom que vous souhaitez
+*/
+/*
+La propriété type permet de savoir quel type d'événement s'est déclenché.
+L'une des propriétés les plus importantes de notre objet se nomme target. Celle-ci permet de récupérer une référence vers l'élément dont l'événement a été déclenché -comme le this pour les événements sans le DOM ou avec DOM-0), ainsi, vous pouvez très bien modifier le contenu d'un élément qui a été cliqué .
+*/
+
+// Récupérer l'élément à l'origine du déclenchement de l'événement
+/*
+Certains événements appliqués à un élément parent peuvent se propager d'eux-mêmes aux éléments enfants : c'est le cas des événements mouseover, mouseout, mousemove, click... ainsi que d'autres événements moins utilisés.
+En testant l'exemple parent, enfant 1 et enfant 2, vous avez surement remarqué que la propriété target renvoyait toujours l'élément déclencheur de l'événement, or nous souhaitons obtenir l'élément sur lequel a été appliqué l'événement. Autrement dit, on veut connaître l'élément à l'origine de cet événement, et non pas ses enfants. 
+Pour ce faire, il suffit d'utiliser currentTarget au lieu de target.
+*/
+
+
+
