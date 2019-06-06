@@ -4,6 +4,23 @@
 <head>
     <meta charset="utf-8">
     <title>Chapitre 12</title>
+    <style>
+    #myDiv, #results4 {
+        margin: 50px;
+    }
+
+    #myDiv {
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+        background-color: #000;
+    }
+
+    #myDiv div {
+        margin: 10px;
+        background-color: #555;
+    }
+    </style>
 </head>
 
 <body>
@@ -101,6 +118,7 @@
     </script>
     <br />
     <br />
+
     <span id="clickme4">Cliquez-moi !</span>
 
     <script>
@@ -128,7 +146,113 @@
             result.innerHTML = "L'élément déclencheur de l'événement \"mouseover\" possède l'ID : " + e.target.id;
         });
     </script>
+    <br />
+    <br />
+    
+    <h2>Récupérer la position</h2>
+    
+    <div id="position"></div>
+    <script>
+        var position = document.getElementById('position');
+      
+        document.addEventListener('mousemove', function(e) {
+            position.innerHTML = 'Position X : ' + e.clientX + 'px<br />Position Y : ' + e.clientY + 'px';
+        });
+    </script>
+    <br />
+    <br />
 
+    <p id="result2"></p>
+
+    <div id="parent3">
+        Parent N°3<br /> Mouseover sur l'enfant
+        <div id="child3">Enfant N°3</div>
+    </div>
+
+    <div id="parent4">
+        Parent N°4<br /> Mouseout sur l'enfant
+        <div id="child4">Enfant N°4</div>
+    </div>
+
+    <script>
+        var child3 = document.getElementById('child3'),
+            child4 = document.getElementById('child4'),
+            result2 = document.getElementById('result2');
+
+        child3.addEventListener('mouseover', function(e) {
+            result2.innerHTML = "L'élément quitté juste avant que le curseur n'entre sur l'enfant n°3 est : " + e.relatedTarget.id;
+        });
+
+        child4.addEventListener('mouseout', function(e) {
+            result2.innerHTML = "L'élément survolé juste après que le curseur ait quitté l'enfant n°4 est : " + e.relatedTarget.id;
+        });
+    </script>
+    <br />
+    <br />
+    <h2>Récupérer les touches frappées par l'utilisateur </h2>
+    <p>
+    <input id="field" type="text" />
+    </p>
+
+    <table>
+        <tr>
+            <td>keydown</td>
+            <td id="down"></td>
+        </tr>
+        <tr>
+            <td>keypress</td>
+            <td id="press"></td>
+        </tr>
+        <tr>
+            <td>keyup</td>
+            <td id="up"></td>
+        </tr>
+    </table>
+
+    <script>
+        var field = document.getElementById('field'),
+            down = document.getElementById('down'),
+            press = document.getElementById('press'),
+            up = document.getElementById('up');
+
+        document.addEventListener('keydown', function(e) {
+            down.innerHTML = e.keyCode;
+        });
+
+        document.addEventListener('keypress', function(e) {
+            press.innerHTML = e.keyCode;
+        });
+
+        document.addEventListener('keyup', function(e) {
+            up.innerHTML = e.keyCode;
+        });
+        console.log(String.fromCharCode(down));
+    </script>
+    <br />
+    <br />
+
+    <h2>Bloquer l'action par défaut</h2>
+    <a id="link" href="http://www.siteduzero.com">Cliquez-moi !</a>
+    <script>
+        var link = document.getElementById('link');
+
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // On bloque l'action par défaut de cet événement
+            alert('Vous avez cliqué !');
+        });
+    </script>
+    <br />
+    <br />
+
+    <h2>Résoudre les problèmes d'héritage des événements </h2>
+    <div id="myDiv">
+        <div>Texte 1</div>
+        <div>Texte 2</div>
+        <div>Texte 3</div>
+        <div>Texte 4</div>
+    </div>
+    <div id="results4"></div>
+    
     <script src="../js/cours.js"></script>
 </body>
 

@@ -154,5 +154,105 @@ En testant l'exemple parent, enfant 1 et enfant 2, vous avez surement remarqué 
 Pour ce faire, il suffit d'utiliser currentTarget au lieu de target.
 */
 
+// Récupérer la position du curseur
+
+/*
+La position du curseur est une information très importante, beaucoup de monde s'en sert pour de nombreux scripts comme le drag & drop.
+Généralement, on récupère la position du curseur par rapport au coin supérieur gauche de la page Web. cela dit, il est aussi possible de récupérer sa position par rapportau coin supérieur gauche de l'écran.
+Dans ce tutoriel, nous allons nous limiter à la page Web.
+Pour récupérer la position de notre curseur, il existe deux propriétés : clientX pour la position horizontale et clientY pour la position verticale. Etant donné que la position du curseur change à chaque déplacement de la souris, il est logique de dire que l'événement le plus adapté à la majorité des cas est mousemove.
+*/
+
+// Récupérer les touches frappées par l'utilisateur
+
+/*
+La récupération des touches frappées se fait par le biais de trois événements différents. Dit comme ça, cela laisse sur un sentiment de complexité, mais vous allez voir qu'au final tout est beaucoup plus simple qu'il n'y parait.
+Les événements keyup et keydown sont conçus pour capter toutes les frappes de touches. keyup se déclenche lorsque vous relâchez une touche, tandis que keydown se déclenche au moment de l'appui sur la touche (comme mousedown).
+Toutes les touches retournant un caractère retourneront un caractère majuscule, que la touche Maj soit pressée ou non.
+*/
+/*
+L'événement keypress, lui est d'une toute autre utilité : il sert uniquement à capter les touches qui écrivent un caractère, oubliez donc les CTRL, ALT et autres touches de ce genre qui n'affichent pas de caractère. Alors, forcémenent, vous vous demandez probablement à quoi peut bien servir cet événement au final ? Eh bien son avantage réside dans sa capacité à détecter les combinaisons de touches ! Ainsi, si vous faites la combinaison MAJ + A, l'événement keypress détectera bien un A majuscule là où les événéments keyup et keydown se déclencheront deux fois, une fois pour la touche Maj et une deuxième fois pour la touche A.
+Si nous devions énumérer toutes les propriétés capables de vous fournir une valeur, il y an euarit trois : keyCode, charCode et which. Ces propriétés renvoient chacune un code ASCII correspondant à la touche pressée.
+Cependant, la propriété keyCode est amplement suffisante dans tous les cas comme dans l'exemple dans le cours HTML.
+
+Il n'existe une seule méthode pour obtenir non pas un code mais le caractère, c'est la méthode fromCharCode().
+Exemple :
+*/
+
+console.log(String.fromCharCode(84, 101, 115, 116)); // Affiche : Test)
+
+// Bloquer l'action par défaut de certains événements
+
+/*
+Il est possible de bloquer l'action par défaut de certains événements, comme la redirection d'un lien vers une page Web. Sans le DOM-2, cette opération était très simple vu qu'il suffisait d'écrire return false. Avec l'objet Event, c'est quasiment tout aussi simple vu qu'il suffit juste d'appeler la méthode preventDefault().
+*/
 
 
+// RESOUDRE LES PROBLEMES D'HERITAGE DES EVENEMENTS
+
+// Le problème
+/*
+Certains événements appliqués  un élément parent peuvent se propager d'eux-mêmes aux éléments enfants, c'est le cas des événements mouseover, mouseout, mousemove, click... ainsi que d'autres événements moins utilisés.
+
+Voici notre problème : les enfants héritent ds propriétés des événements susnommés appliqués aux éléments parents. Ainsi, lorsque vous déplacez votre curseur depuis le <div< #myDiv jusqu'à un <div> enfant, vous allez déclencher l'événement mouseout sur #myDiv et l'événement mouseover sur le <div> enfant.
+
+*/
+
+/*
+Nous avons deux cas de figure :
+
+ - Dans le cas de l'événement mouseover, nous devons détecter la provenance du curseur. Si le curseur vient d'un enfant de #myDiv, alors le code de l'événement ne devra pas être exécuté. S'il provient d'un élément extérieur à #myDiv, alors l'exécution du code peut s'effectuer.
+
+ - Dans le cas de mouseout, le principe est similaire, si ce n'est que là nous devons détecter la destination du curseur. dans le cas où la destination du curseur est un enfant de #myDiv, alors le code de l'événement n'est pas exécuté, sinon il s'exécutera sans problème.
+*/
+/*
+Commençons avec mouseover.
+Il nous faut savoir si l'élément en question est un enfant direct de myDiv ou non. La solution consiste à remonter tout le long de ses éléments parents jusqu'à tomber soit sur myDiv, soit sur l'élément <body> qui désigne l'élément HTML le plus haut dans notre document. Il va donc nous falloir une boucle while.
+
+Il nous duffit alors d'insérer une condition qui exécutera le code de notre événement uniquement dans le cas où la variable relatedTarget ne pointe pas sur l'élément myDiv.
+
+Attention à un point, la balise body ne couvre pas forcément la page Web complète de votre navigateur, ce qui fait que votre curseur peut provenir d'un élément situé encore plus haut que la balise body. Cet élément correspond à la balise html soit l'élément document en JavaScript. Il nous faut donc faire une petite modification afin de bien préciser que si le curseur provient de document il ne peut forcément pas mprovenir de myDiv.
+
+Pour mouseout, l'événement est basiquement le même code que pour mouseover à la différence du texte à afficher et d'utiliser mousoute à la place de mouseover
+*/
+
+var myDiv = document.getElementById('myDiv'),
+    results4 = document.getElementById('results4');
+
+myDiv.addEventListener('mouseover', function(e) {
+
+    var relatedTarget = e.relatedTarget;
+
+    while (relatedTarget != myDiv && relatedTarget.nodeName != 'BODY' && relatedTarget != document) {
+        relatedTarget = relatedTarget.parentNode;
+    }
+
+    if (relatedTarget != myDiv) {
+        results4.innerHTML += "Le curseur vient d'entrer.";
+    }
+
+});
+
+myDiv.addEventListener('mouseout', function(e) {
+
+    var relatedTarget = e.relatedTarget;
+
+    while (relatedTarget != myDiv && relatedTarget.nodeName != 'BODY' && relatedTarget != document) {
+        relatedTarget = relatedTarget.parentNode;
+    }
+
+    if (relatedTarget != myDiv) {
+        results4.innerHTML += "Le curseur vient de sortir.<br />";
+    }
+
+});
+
+// En résumé
+
+/*
+- Les événements sont utilisés pour appeler une fonction à partir d'une action produite ou non par l'utilisateur.
+- Différents événements existent pour détecter certaines actions comme le clic, le survol, la frappe au clavier et le contrôle des champs de formulaires
+- Le DOM-0 est l'ancienne manière de capturer les événements. Le DOM62 introduit l'objet Event et la fameuse méthode addEventListener()
+- L'objet Event permet de récolter toutes sortes d'informations se rapportant à l'événement déclenché : son type, depuis quel élément il a été déclenché, la position du curseur, les touches frappées... Il est aussi possible de bloquer l'action d'un événement avec preventDefault()
+- Parfois un événement appliqué sur un parent se propage à ses enfants. Cet héritage des événements peut provoquer des comportements inattendus.
+*/
