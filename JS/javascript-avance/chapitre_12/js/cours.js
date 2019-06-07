@@ -213,7 +213,7 @@ Il nous duffit alors d'insérer une condition qui exécutera le code de notre é
 
 Attention à un point, la balise body ne couvre pas forcément la page Web complète de votre navigateur, ce qui fait que votre curseur peut provenir d'un élément situé encore plus haut que la balise body. Cet élément correspond à la balise html soit l'élément document en JavaScript. Il nous faut donc faire une petite modification afin de bien préciser que si le curseur provient de document il ne peut forcément pas mprovenir de myDiv.
 
-Pour mouseout, l'événement est basiquement le même code que pour mouseover à la différence du texte à afficher et d'utiliser mousoute à la place de mouseover
+Pour mouseout, l'événement est basiquement le même code que pour mouseover à la différence du texte à afficher et d'utiliser mouseout à la place de mouseover
 */
 
 var myDiv = document.getElementById('myDiv'),
