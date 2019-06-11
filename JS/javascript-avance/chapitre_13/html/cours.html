@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Chapitre 13</title>
+</head>
+
+<body>
+    <h2>La propriété value</h2>
+    <input id="text" type="text" size="60" value="Vous n'avez pas le focus !" />
+    <script>
+        var text = document.getElementById('text');
+      
+        text.addEventListener('focus', function(e) {
+            e.target.value = "Vous avez le focus !";
+        });
+
+        text.addEventListener('blur', function(e) {
+            e.target.value = "Vous n'avez pas le focus !";
+        });
+    </script>
+
+    <h2>Les booléens disabled, checked et readonly</h2>
+    <h3>Disabled</h3>
+    <input id="text2" type="text" />
+    <script>
+        var text2 = document.getElementById('text2');
+
+        text2.disabled = true;
+    </script>
+
+    <h3>Checked radio</h3>
+    <label><input type="radio" name="check" value="1" /> Case n°1</label><br />
+    <label><input type="radio" name="check" value="2" /> Case n°2</label><br />
+    <label><input type="radio" name="check" value="3" /> Case n°3</label><br />
+    <label><input type="radio" name="check" value="4" /> Case n°4</label>
+    <br /><br />
+    <input type="button" value="Afficher la case cochée" onclick="check();" />
+
+    <script>
+        function check() {
+            var inputs = document.getElementsByTagName('input'),
+                inputsLength = inputs.length;
+
+            for (var i = 0; i < inputsLength; i++) {
+                if (inputs[i].type === 'radio' && inputs[i].checked) {
+                    alert('La case cochée est la n°' + inputs[i].value);
+                }
+            }
+        }
+    </script>
+
+    <script src="../js/cours.js"></script>
+</body>
+
+</html>
