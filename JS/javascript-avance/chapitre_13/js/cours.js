@@ -25,4 +25,26 @@ Contrairement à la propriété value, les trois propriétés disabled, checked 
 
 	Pour checked, il faut procéder de la même manière sauf pour un bouton radio. Chaque bouton radio coché se verra attribuer la valeur true à sa propriété checked, il va donc nous falloir utiliser une boucle for pour vérifier quel bouton radio a été sélectionné.
 
+L'intérêt de cet exemple était de vous présenter l'utilisation de la propriété checked, sachez cependant qu'il est possible de simplifier ce code grâce à la méthode querySelectorAll() :
+*/
+
+function check2() {
+    var inputs = document.querySelectorAll('input[type=radio]:checked'),
+        inputsLength = inputs.length;
+
+    for (var i = 0; i < inputsLength; i++) {
+        alert('La case cochée est la n°' + inputs[i].value);
+    }
+}
+
 /*
+Toutes les vérifications concernant le type du champ et le fait qu'il soit coché ou non sont faites au niveau de querySelectorAll(), on peut ainsi supprimer l'ancienne condition.
+*/
+
+// Les listes déroulantes avec selectedIndex et options
+/*
+Les listes déroulantes possèdent elles aussi leurs propres propriétés :
+- selectedindex qui donne l'index de la valeur sélectionnée
+- options qui liste dans un tableau les éléments <option> de notre liste déroulante.
+
+*/

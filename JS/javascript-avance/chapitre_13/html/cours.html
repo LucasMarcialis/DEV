@@ -37,6 +37,7 @@
     <label><input type="radio" name="check" value="4" /> Case n°4</label>
     <br /><br />
     <input type="button" value="Afficher la case cochée" onclick="check();" />
+    <input type="button" value="Afficher la case cochée (bis)" onclick="check2();" />
 
     <script>
         function check() {
@@ -49,6 +50,24 @@
                 }
             }
         }
+    </script>
+
+    <h3>Les listes déroulantes</h3>
+    <select id="list">
+        <option>Sélectionnez votre sexe</option>
+        <option>Homme</option>
+        <option>Femme</option>
+    </select>
+
+    <script>
+        var list = document.getElementById('list');
+
+        list.addEventListener('change', function() {
+
+            // On affiche le contenu de l'élément <option> ciblé par la propriété selectedIndex
+            alert(list.options[list.selectedIndex].innerHTML);
+
+        });
     </script>
 
     <script src="../js/cours.js"></script>
