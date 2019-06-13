@@ -75,33 +75,39 @@
     <h2>Les méthodes et un retour sur quelques événements</h2>
     <h3>Les méthodes spécifiques à l'élément <form>
     <br />
-    <form id = 'firstForm'>
-        <textarea placeholder="Fill in the blank !"></textarea>
-    </form>
-
-    <br />
-    <br />
     <form id="myForm">
-    <input type="text" value="Entrez un texte" />
-    <br /><br />
-    <input type="submit" value="Submit !" />
-    <input type="reset" value="Reset !" />
-</form>
-  
-<script>
-    var myForm = document.getElementById('myForm');
-  
-    myForm.addEventListener('submit', function(e) {
-        alert('Vous avez envoyé le formulaire !\n\nMais celui-ci a été bloqué pour que vous ne changiez pas de page.');
-        e.preventDefault();
-    });
-  
-    myForm.addEventListener('reset', function(e) {
-        alert('Vous avez réinitialisé le formulaire !');
-    });
-</script>
+        <input type="text" value="Entrez un texte" />
+        <br /><br />
+        <input type="submit" value="Submit !" />
+        <input type="reset" value="Reset !" />
+    </form>
+      
+    <script>
+        var myForm = document.getElementById('myForm');
+      
+        myForm.addEventListener('submit', function(e) {
+            alert('Vous avez envoyé le formulaire !\n\nMais celui-ci a été bloqué pour que vous ne changiez pas de page.');
+            e.preventDefault();
+        });
+      
+        myForm.addEventListener('reset', function(e) {
+            alert('Vous avez réinitialisé le formulaire !');
+        });
+    </script>
 
+    <h3>Gestion du focus et de la sélection</h3>
+    <input id="text2" type="text" value="Entrez un texte" />
+    <br /><br />
+    <input type="button" value="Donner le focus" onclick="document.getElementById('text2').focus();" /><br />
+    <input type="button" value="Retirer le focus" onclick="document.getElementById('text2').blur();" />
     <script src="../js/cours.js"></script>
+
+    <br />
+    <br />
+
+    <input id="text3" type="text" value="Entrez un texte" />
+    <br /><br />
+    <input type="button" value="Sélectionner le texte" onclick="document.getElementById('text3').select();" />
 </body>
 
 </html>
