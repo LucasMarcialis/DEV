@@ -48,3 +48,23 @@ Les listes déroulantes possèdent elles aussi leurs propres propriétés :
 - options qui liste dans un tableau les éléments <option> de notre liste déroulante.
 
 */
+
+//  LES METHODES ET UN RETOUR SUR QUELQUES EVENEMENTS
+
+// Les méthodes spécifiques à l'élément <form>
+
+/*
+Un formulaire ou l'élément <form> possède deux méthodes intéressantes.
+- La première submit() permet d'effectuer l'envoi d'un formulaire sans intervention de l'utilisateur.
+- La deuxième reset(), permet de réinitialiser tous les champs d'un formulaire.
+Si vous êtes un habitué des formulaire HTML, vous aurez deviné que ces deux méthodes ont le même rôle que les éléments <input> de type submit ou reset.
+*/
+
+var element = document.getElementById('firstForm');
+
+element.submit();
+element.reset();
+
+/*
+Maintenant revenons sur deux évenements:submit et reset. Il est important de préciser une chose : envoyer un formulaire avec la méthode submit() du JavaScript ne déclenchera jamais l'événement submit ! Voir exercice suivant.
+*/

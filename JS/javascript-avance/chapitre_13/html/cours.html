@@ -70,6 +70,37 @@
         });
     </script>
 
+    <br />
+    <br />
+    <h2>Les méthodes et un retour sur quelques événements</h2>
+    <h3>Les méthodes spécifiques à l'élément <form>
+    <br />
+    <form id = 'firstForm'>
+        <textarea placeholder="Fill in the blank !"></textarea>
+    </form>
+
+    <br />
+    <br />
+    <form id="myForm">
+    <input type="text" value="Entrez un texte" />
+    <br /><br />
+    <input type="submit" value="Submit !" />
+    <input type="reset" value="Reset !" />
+</form>
+  
+<script>
+    var myForm = document.getElementById('myForm');
+  
+    myForm.addEventListener('submit', function(e) {
+        alert('Vous avez envoyé le formulaire !\n\nMais celui-ci a été bloqué pour que vous ne changiez pas de page.');
+        e.preventDefault();
+    });
+  
+    myForm.addEventListener('reset', function(e) {
+        alert('Vous avez réinitialisé le formulaire !');
+    });
+</script>
+
     <script src="../js/cours.js"></script>
 </body>
 
