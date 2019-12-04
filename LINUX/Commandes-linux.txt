@@ -1,0 +1,7 @@
+ls -all = ls -a > show all files & folders
+ls -f > indique le type d'éléments	
+ls -l > affiche une liste détaillant chaque élément du dossier
+ls -h > afficher la taille en Ko, Mo, Go
+Ls-t > trier par date de dernière modification
+pwd > print work directory
+which + command > donne l'emplacement d'une commande
