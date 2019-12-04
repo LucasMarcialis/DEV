@@ -1,3 +1,4 @@
+CHAPTER_1
 pwd > print work directory
 ls -all = ls -a > show all files & folders
 ls -f > indique le type d'éléments	
@@ -12,3 +13,5 @@ du > Disk usage
 du -h > disk usage for humans
 du -a > afficher taille des dossiers et des fichiers
 which + command > donne l'emplacement d'une commande
+
+CHAPTER_2
