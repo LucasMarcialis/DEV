@@ -1,0 +1,17 @@
+CHAPTER_1
+pwd > print work directory
+ls -all = ls -a > show all files & folders
+ls -f > indique le type d'éléments	
+ls -l > affiche une liste détaillant chaque élément du dossier
+ls -h > afficher la taille en Ko, Mo, Go
+ls -t > trier par date de dernière modification
+ls -r > renverse l'ordre d'affichage
+ls -larth > contient toutes les options ci-dessus
+cd ~ (all + n) > retour au dossier root
+Use tab to autocomplete
+du > Disk usage
+du -h > disk usage for humans
+du -a > afficher taille des dossiers et des fichiers
+which + command > donne l'emplacement d'une commande
+
+CHAPTER_2
