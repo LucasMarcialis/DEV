@@ -68,4 +68,10 @@ Maintenant revenons sur deux évenements:submit et reset. Il est important de pr
 Il existe aussi deux méthodes focus() et blur() permettant respectivement d edonner et retirer le focus à un élement.
 */
 
+<<<<<<< HEAD
 confirm('Sauver ?');
+=======
+/*
+NIELS
+*/
+>>>>>>> e8941ff1383f3364ef27c2862bf97b344b489934
